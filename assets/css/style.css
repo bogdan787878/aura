@@ -402,10 +402,10 @@ body {
 .tab-block__desc {
   display: none;
   margin: 28px 0 0;
-  font-size: 18px;
+  font-size: 20px;
   line-height: 1.7;
   color: rgba(255,255,255,.85);
-  max-width: 48ch;
+  max-width: 52ch;
 }
 .tab-block__desc.is-active { display: block; }
 
