@@ -1,0 +1,655 @@
+/* ===== AURA — landing styles ===== */
+
+:root {
+  --burgundy: #8C241F;
+  --white: #FFFFFF;
+  --bronze-1: #E3B98A;
+  --bronze-2: #A9713F;
+  --ink: #1C1210;
+
+  --font-display: 'Cormorant Garamond', Georgia, 'Times New Roman', serif;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: var(--font-display);
+  font-weight: 400;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+  /* Cormorant Garamond по умолчанию рисует старостильные цифры (мелкие,
+     "гуляющие" по высоте) — переключаем на прописные, одной высоты с буквами */
+  font-variant-numeric: lining-nums;
+  font-feature-settings: 'lnum' 1;
+}
+
+/* ===== Placeholder media block (stand-in for real photography/logo) ===== */
+.ph {
+  position: relative;
+  border-radius: 2px;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 30% 20%, rgba(255,255,255,.10), transparent 55%),
+    linear-gradient(135deg, var(--bronze-2), var(--burgundy) 60%, #3D0F0C);
+  display: flex;
+  align-items: flex-end;
+  min-height: 220px;
+}
+.ph::before {
+  content: "";
+  position: absolute; inset: 0;
+  background-image:
+    repeating-radial-gradient(circle at 50% 50%, transparent 0, transparent 60px, rgba(255,255,255,.04) 61px, transparent 62px);
+  opacity: .6;
+}
+.ph .ph-label {
+  position: relative;
+  display: block;
+  padding: 16px 20px;
+  font-family: 'Inter', system-ui, sans-serif;
+  font-size: 12px;
+  letter-spacing: 0.05em;
+  color: rgba(255,255,255,.85);
+  background: linear-gradient(to top, rgba(0,0,0,.35), transparent);
+  width: 100%;
+}
+/* Once a real file is uploaded (assets/js/images.js / edit-mode.js add this class) */
+.ph.has-photo::before { display: none; }
+.ph.has-photo .ph-label { display: none; }
+
+/* ===== Hero ===== */
+.hero {
+  position: relative;
+  min-height: 100svh;
+  display: flex;
+  align-items: center;
+  color: var(--white);
+  text-align: center;
+  background: var(--burgundy);
+  overflow: hidden;
+}
+
+/* Brand wordmark file, supplied separately — pinned at y=56 per design spec.
+   Sits BELOW the hero photo, so the model's silhouette can crop over its bottom edge. */
+.hero-logo {
+  position: absolute;
+  top: 56px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1;
+  width: min(620px, 60vw);
+  aspect-ratio: 3.2 / 1;
+  min-height: 0;
+}
+.hero-logo .ph-label { font-size: 11px; }
+
+/* Single flattened creative (model + rings, supplied by design) — rendered
+   ABOVE the logo on purpose, so it crops over the bottom of the wordmark.
+   Flat brand red until uploaded — no gradient, no ring texture. */
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  min-height: 0;
+  border-radius: 0;
+  background: var(--burgundy);
+}
+.hero-bg::before { display: none; }
+/* Once the transparent-PNG photo is uploaded, drop the flat-color fallback —
+   otherwise it paints solid red under the transparent pixels and hides the
+   logo underneath instead of letting it show through. */
+.hero-bg.has-photo { background-color: transparent; }
+.hero-inner {
+  position: relative;
+  z-index: 4;
+  width: 100%;
+  padding: 64px 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  min-height: 100svh;
+  pointer-events: none; /* let clicks fall through empty space to .hero-bg underneath */
+}
+.hero-inner [data-slot] { pointer-events: auto; }
+
+.hero-offer {
+  font-family: var(--font-display);
+  font-size: clamp(28px, 4vw, 44px);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--white);
+}
+
+/* ===== О проекте — pinned scroll block ===== */
+.about-pin {
+  position: relative;
+  height: 300vh; /* 3 steps × 100vh of scroll to drive the pin */
+  background: var(--white);
+}
+.about-pin__sticky {
+  position: sticky;
+  top: 0;
+  height: 100svh;
+  display: grid;
+  grid-template-columns: minmax(320px, 38%) 1fr;
+  align-items: center;
+  gap: 48px;
+  overflow: hidden;
+}
+.about-pin__text {
+  padding: 0 24px 0 clamp(24px, 6vw, 96px);
+}
+.about-pin__title {
+  font-size: clamp(36px, 4.2vw, 56px);
+  font-weight: 500;
+  line-height: 1.08;
+  color: var(--burgundy);
+  margin: 0 0 28px;
+  text-transform: uppercase;
+}
+.about-pin__body {
+  font-size: clamp(17px, 1.3vw, 20px);
+  line-height: 1.65;
+  color: var(--ink);
+  max-width: 46ch;
+}
+.about-pin__media {
+  position: relative;
+  aspect-ratio: 5 / 4;
+  max-height: 640px;
+}
+.about-pin__photo {
+  position: absolute;
+  inset: 0;
+  border-radius: 0;
+  min-height: 0;
+  opacity: 0;
+  pointer-events: none; /* stacked layers — only the visible one should catch clicks */
+  transition: opacity .6s ease;
+}
+.about-pin__photo.is-active { opacity: 1; pointer-events: auto; }
+.about-pin__badge {
+  position: absolute;
+  left: -40px;
+  bottom: 64px;
+  z-index: 3;
+  background: var(--burgundy);
+  color: var(--white);
+  font-family: var(--font-display);
+  font-size: clamp(24px, 2.4vw, 34px);
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  padding: 26px 40px;
+  white-space: nowrap;
+}
+@media (max-width: 900px) {
+  .about-pin__sticky { grid-template-columns: 1fr; padding-top: 100px; gap: 24px; }
+  .about-pin__media { max-height: 320px; }
+  .about-pin__badge { left: 24px; bottom: 24px; font-size: 20px; padding: 16px 24px; }
+}
+
+/* ===== Локация — карта на фоне ===== */
+.location-map {
+  position: relative;
+  min-height: 100svh;
+  background: var(--burgundy);
+  overflow: hidden;
+}
+.location-map__bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  min-height: 0;
+  border-radius: 0;
+  background: var(--burgundy);
+}
+.location-map__bg::before { display: none; }
+.location-map__bg.has-photo { background-color: transparent; }
+
+.location-map__content {
+  position: relative;
+  z-index: 1;
+  min-height: 100svh;
+  padding: clamp(24px, 6vw, 96px);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  pointer-events: none; /* let clicks fall through to .location-map__bg underneath */
+}
+.location-map__title {
+  font-size: clamp(36px, 5vw, 64px);
+  font-weight: 500;
+  line-height: 1.08;
+  color: var(--white);
+  text-transform: uppercase;
+  margin: 0;
+}
+.location-map__stats {
+  display: flex;
+  gap: clamp(24px, 4vw, 56px);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  flex-wrap: wrap;
+}
+.location-map__stats li {
+  display: flex;
+  flex-direction: column;
+}
+.location-map__stats .num {
+  font-family: var(--font-display);
+  font-size: clamp(36px, 4vw, 52px);
+  font-weight: 400;
+  color: var(--white);
+  line-height: 1;
+}
+.location-map__stats .label {
+  margin-top: 10px;
+  font-family: var(--font-display);
+  font-size: 13px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,.75);
+  line-height: 1.5;
+}
+@media (max-width: 640px) {
+  .location-map__stats { gap: 22px; }
+}
+
+/* ===== Reusable: full-bleed photo + title (Внутренняя инфраструктура, etc.) ===== */
+.section-photo {
+  position: relative;
+  min-height: 100svh;
+  background: var(--burgundy);
+  overflow: hidden;
+}
+.section-photo__bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  min-height: 0;
+  border-radius: 0;
+}
+.section-photo__content {
+  position: relative;
+  z-index: 1;
+  min-height: 100svh;
+  padding: clamp(24px, 6vw, 96px);
+  display: flex;
+  align-items: flex-end;
+  pointer-events: none; /* let clicks fall through to .section-photo__bg underneath */
+}
+.section-photo__title {
+  font-size: clamp(36px, 5vw, 64px);
+  font-weight: 500;
+  line-height: 1.08;
+  color: var(--white);
+  text-transform: uppercase;
+  margin: 0;
+}
+
+/* ===== Внутренняя инфраструктура — обычный sticky-сайдбар (без JS) =====
+   Заголовок слева "прилипает" стандартным CSS position:sticky, пока справа
+   в обычном потоке пролистываются 3 карточки (фото + подпись + описание). */
+.infra-pin {
+  position: relative;
+  background: var(--white);
+  display: grid;
+  grid-template-columns: minmax(280px, 36%) 1fr;
+  gap: 48px;
+  padding: 140px 0;
+}
+.infra-pin__side {
+  position: sticky;
+  top: 0;
+  height: 100svh;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 0 24px 0 clamp(24px, 6vw, 96px);
+}
+/* Заголовок статичный убрали — вместо него подпись/описание активной
+   (ближайшей к центру экрана) карточки, обновляется скриптом infra-sync.js */
+.infra-pin__caption {
+  font-size: clamp(28px, 3.2vw, 42px);
+  font-weight: 500;
+  line-height: 1.15;
+  color: var(--burgundy);
+  text-transform: uppercase;
+  margin: 0 0 20px;
+  transition: opacity .3s ease;
+}
+.infra-pin__desc {
+  margin: 0;
+  font-size: 18px;
+  line-height: 1.6;
+  color: var(--ink);
+  max-width: 46ch;
+  transition: opacity .3s ease;
+}
+.infra-pin__media {
+  padding-right: clamp(24px, 6vw, 96px);
+  display: flex;
+  flex-direction: column;
+  gap: 96px;
+}
+.infra-pin__photo {
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  min-height: 0;
+}
+@media (max-width: 900px) {
+  .infra-pin { grid-template-columns: 1fr; }
+  .infra-pin__side { position: relative; top: 0; margin-bottom: 40px; }
+}
+
+/* ===== Архитектура / Благоустройство — фото + заголовок + переключатель табов ===== */
+.tabs-block-wrap {
+  background: var(--burgundy);
+  padding: 100px 0;
+}
+.tab-block {
+  display: grid;
+  grid-template-columns: 1.3fr 1fr;
+  gap: 64px;
+  align-items: start;
+  padding: 0 clamp(24px, 6vw, 96px);
+}
+.tab-block--reverse { grid-template-columns: 1fr 1.3fr; }
+.tab-block + .tab-block { margin-top: 120px; }
+
+.tab-block__media { position: relative; }
+.tab-block__photo {
+  width: 100%;
+  aspect-ratio: 5 / 4;
+  min-height: 0;
+  display: none;
+}
+.tab-block__photo.is-active { display: flex; }
+
+.tab-block__title {
+  font-size: clamp(32px, 3.6vw, 48px);
+  font-weight: 500;
+  line-height: 1.1;
+  color: var(--white);
+  text-transform: uppercase;
+  margin: 0 0 28px;
+}
+.tab-block__tabs {
+  display: inline-flex;
+  flex-wrap: wrap;
+}
+.tab-block__tab {
+  font-family: var(--font-display);
+  font-size: 14px;
+  padding: 12px 22px;
+  background: var(--white);
+  color: var(--ink);
+  border: none;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: background .25s ease, color .25s ease;
+}
+.tab-block__tab.is-active {
+  background: var(--ink);
+  color: var(--white);
+}
+.tab-block__desc {
+  display: none;
+  margin: 28px 0 0;
+  font-size: 18px;
+  line-height: 1.7;
+  color: rgba(255,255,255,.85);
+  max-width: 48ch;
+}
+.tab-block__desc.is-active { display: block; }
+
+@media (max-width: 900px) {
+  .tab-block { grid-template-columns: 1fr; }
+  .tab-block--reverse .tab-block__content { order: -1; }
+  .tab-block + .tab-block { margin-top: 72px; }
+}
+
+/* ===== Пространства для отдыха, работы и спорта — фото слева + слайдер справа ===== */
+/* ===== Пространства для отдыха, работы и спорта — тот же sticky-сайдбар,
+   что и "Внутренняя инфраструктура" (см. .infra-pin выше) ===== */
+.amenities-pin {
+  position: relative;
+  background: var(--white);
+  display: grid;
+  grid-template-columns: minmax(280px, 36%) 1fr;
+  gap: 48px;
+  padding: 140px 0;
+}
+.amenities-pin__side {
+  position: sticky;
+  top: 0;
+  height: 100svh;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 0 24px 0 clamp(24px, 6vw, 96px);
+}
+/* Заголовок статичный убрали — вместо него подпись/описание активной
+   (ближайшей к центру экрана) карточки, обновляется скриптом amenities-sync.js */
+.amenities-pin__caption {
+  font-size: clamp(28px, 3.2vw, 42px);
+  font-weight: 500;
+  line-height: 1.15;
+  color: var(--burgundy);
+  text-transform: uppercase;
+  margin: 0 0 20px;
+  transition: opacity .3s ease;
+}
+.amenities-pin__desc {
+  margin: 0;
+  font-size: 18px;
+  line-height: 1.6;
+  color: var(--ink);
+  max-width: 46ch;
+  transition: opacity .3s ease;
+}
+.amenities-pin__media {
+  padding-right: clamp(24px, 6vw, 96px);
+  display: flex;
+  flex-direction: column;
+  gap: 96px;
+}
+.amenities-pin__photo {
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  min-height: 0;
+}
+@media (max-width: 900px) {
+  .amenities-pin { grid-template-columns: 1fr; }
+  .amenities-pin__side { position: relative; top: 0; margin-bottom: 40px; }
+}
+
+/* ===== Эстетика и функциональность — заголовок теперь в баннере выше;
+   здесь только подзаголовок/описание и каскад из 4 фото ===== */
+.aesthetics {
+  background: #EEE1D9;
+  padding: 100px clamp(24px, 6vw, 96px) 140px;
+}
+.aesthetics__subtitle {
+  font-size: 22px;
+  font-weight: 500;
+  text-transform: uppercase;
+  color: var(--ink);
+  margin: 0 0 20px;
+}
+.aesthetics__desc {
+  font-size: 18px;
+  line-height: 1.6;
+  color: var(--ink);
+  opacity: .8;
+  margin: 0 0 64px;
+  max-width: 640px;
+}
+
+.aesthetics__cascade {
+  display: flex;
+  align-items: flex-start;
+  gap: 24px;
+}
+.aesthetics__photo {
+  flex: 1 1 0;
+  min-height: 0;
+  aspect-ratio: 3 / 4;
+}
+.aesthetics__photo:nth-child(1) { flex-grow: 0.75; margin-top: 64px; }
+.aesthetics__photo:nth-child(2) { flex-grow: 0.9;  margin-top: 32px; }
+.aesthetics__photo:nth-child(3) { flex-grow: 1;    margin-top: 8px; }
+.aesthetics__photo:nth-child(4) { flex-grow: 1.2;  margin-top: 0; }
+
+@media (max-width: 900px) {
+  .aesthetics__cascade { flex-direction: column; }
+  .aesthetics__photo { width: 100%; margin-top: 0 !important; aspect-ratio: 4 / 3; }
+}
+
+/* ===== Планировки ===== */
+.plans {
+  background: #EEE1D9;
+  padding: 120px clamp(24px, 6vw, 96px);
+}
+.plans__head {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  flex-wrap: wrap;
+  gap: 24px;
+  margin-bottom: 20px;
+}
+.plans__title {
+  font-size: clamp(32px, 3.6vw, 48px);
+  font-weight: 500;
+  line-height: 1.1;
+  color: var(--burgundy);
+  text-transform: uppercase;
+  margin: 0;
+}
+.plans__filters {
+  display: inline-flex;
+  flex-wrap: wrap;
+}
+.plans__filter {
+  font-family: var(--font-display);
+  font-size: 14px;
+  padding: 12px 20px;
+  background: var(--white);
+  color: var(--ink);
+  border: 1px solid rgba(43,29,25,.2);
+  border-left: none;
+  cursor: pointer;
+  transition: background .25s ease, color .25s ease;
+}
+.plans__filter:first-child { border-left: 1px solid rgba(43,29,25,.2); }
+.plans__filter.is-active {
+  background: var(--ink);
+  color: var(--white);
+  border-color: var(--ink);
+}
+.plans__count {
+  font-family: var(--font-display);
+  font-size: 14px;
+  color: var(--ink);
+  opacity: .6;
+  margin: 0 0 30px;
+}
+.plans__empty {
+  font-size: 16px;
+  color: var(--ink);
+  opacity: .6;
+}
+.plans__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 8px;
+}
+
+.plan-card {
+  position: relative;
+  background: var(--white);
+  padding: 16px;
+  box-sizing: border-box;
+}
+.plan-card__media { position: relative; }
+.plan-card__img {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: contain; /* планировки — SVG-схемы, не фото: не обрезаем */
+  padding: 24px;
+  box-sizing: border-box;
+  display: block;
+}
+.plan-card__img--ph {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-display);
+  font-size: 13px;
+  color: var(--ink);
+  opacity: .5;
+  background: linear-gradient(135deg, var(--bronze-2), var(--burgundy) 60%, #3D0F0C);
+}
+.plan-card__body { padding: 28px 8px 8px; }
+.plan-card__title {
+  font-size: 24px;
+  font-weight: 500;
+  color: var(--burgundy);
+  text-transform: uppercase;
+  margin: 0 0 14px;
+}
+.plan-card__line {
+  font-family: var(--font-display);
+  font-size: 17px;
+  color: var(--ink);
+  margin: 0 0 10px;
+}
+.plan-card__pricing {
+  margin-top: 22px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+.plan-card__ppm {
+  font-family: var(--font-display);
+  font-size: 15px;
+  color: var(--ink);
+  opacity: .6;
+}
+.plan-card__price-block { text-align: right; }
+.plan-card__price-top {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-bottom: 4px;
+}
+.plan-card__price-old {
+  text-decoration: line-through;
+  opacity: .5;
+  font-weight: 400;
+  font-size: 15px;
+  color: var(--ink);
+}
+.plan-card__badge {
+  background: var(--burgundy);
+  color: var(--white);
+  font-family: var(--font-display);
+  font-size: 12px;
+  font-weight: 500;
+  padding: 3px 9px;
+}
+.plan-card__price-new {
+  font-size: 26px;
+  font-weight: 500;
+  color: var(--burgundy);
+}

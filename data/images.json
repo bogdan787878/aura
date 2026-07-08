@@ -1,0 +1,13 @@
+{
+  "logo": "assets/img/logo.svg",
+  "hero-bg": "assets/img/hero-bg.png",
+  "about-photo-3": "assets/img/about-photo-3.jpg",
+  "about-photo-1": "assets/img/about-photo-1.jpg",
+  "about-photo-2": "assets/img/about-photo-2.jpg",
+  "location-map": "assets/img/location-map.png",
+  "infra-photo-3": "assets/img/infra-photo-3.jpg",
+  "infra-photo-5": "assets/img/infra-photo-5.jpg",
+  "amenity-photo-2": "assets/img/amenity-photo-2.jpg",
+  "aesthetics-banner-bg": "assets/img/aesthetics-banner-bg.png",
+  "amenities-banner-bg": "assets/img/amenities-banner-bg.png"
+}
