@@ -289,7 +289,7 @@ body {
   color: var(--white);
   text-transform: uppercase;
   margin: 0;
-  text-shadow: 0 2px 20px rgba(0,0,0,.45), 0 1px 4px rgba(0,0,0,.5);
+  text-shadow: 0 1px 12px rgba(0,0,0,.3), 0 1px 3px rgba(0,0,0,.35);
 }
 
 /* ===== Внутренняя инфраструктура — обычный sticky-сайдбар (без JS) =====
@@ -556,7 +556,7 @@ body {
   margin: 0 0 20px;
 }
 .parking__desc {
-  font-size: 15px;
+  font-size: 18px;
   line-height: 1.7;
   color: rgba(255,255,255,.85);
   margin: 0 0 40px;
@@ -565,14 +565,12 @@ body {
   display: flex;
   width: fit-content;
   background: var(--burgundy);
-  border: 1px solid rgba(255,255,255,.25);
 }
 .parking__stat {
   padding: 22px 32px;
   display: flex;
   flex-direction: column;
 }
-.parking__stat + .parking__stat { border-left: 1px solid rgba(255,255,255,.25); }
 .parking__stat b {
   font-size: 34px;
   font-weight: 500;
