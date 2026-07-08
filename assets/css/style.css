@@ -289,6 +289,7 @@ body {
   color: var(--white);
   text-transform: uppercase;
   margin: 0;
+  text-shadow: 0 2px 20px rgba(0,0,0,.45), 0 1px 4px rgba(0,0,0,.5);
 }
 
 /* ===== Внутренняя инфраструктура — обычный sticky-сайдбар (без JS) =====
@@ -477,7 +478,7 @@ body {
   padding: 100px clamp(24px, 6vw, 96px) 140px;
 }
 .aesthetics__subtitle {
-  font-size: 22px;
+  font-size: clamp(28px, 3.2vw, 42px);
   font-weight: 500;
   text-transform: uppercase;
   color: var(--ink);
@@ -492,164 +493,164 @@ body {
   max-width: 640px;
 }
 
+/* Каскад "как свечи на графике": одинаковый размер карточек, каждая
+   следующая смещена ниже предыдущей с нарастающим шагом. */
 .aesthetics__cascade {
   display: flex;
   align-items: flex-start;
-  gap: 24px;
+  gap: 10px;
 }
 .aesthetics__photo {
   flex: 1 1 0;
   min-height: 0;
   aspect-ratio: 3 / 4;
 }
-.aesthetics__photo:nth-child(1) { flex-grow: 0.75; margin-top: 64px; }
-.aesthetics__photo:nth-child(2) { flex-grow: 0.9;  margin-top: 32px; }
-.aesthetics__photo:nth-child(3) { flex-grow: 1;    margin-top: 8px; }
-.aesthetics__photo:nth-child(4) { flex-grow: 1.2;  margin-top: 0; }
+.aesthetics__photo:nth-child(1) { margin-top: 0; }
+.aesthetics__photo:nth-child(2) { margin-top: 70px; }
+.aesthetics__photo:nth-child(3) { margin-top: 150px; }
+.aesthetics__photo:nth-child(4) { margin-top: 220px; }
 
 @media (max-width: 900px) {
   .aesthetics__cascade { flex-direction: column; }
   .aesthetics__photo { width: 100%; margin-top: 0 !important; aspect-ratio: 4 / 3; }
 }
 
+/* ===== Паркинг ===== */
+.parking {
+  position: relative;
+  min-height: 100svh;
+  background: var(--burgundy);
+  overflow: hidden;
+}
+.parking__bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  min-height: 0;
+  border-radius: 0;
+}
+.parking__bg::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, rgba(12,8,7,.6) 0%, rgba(12,8,7,.15) 55%, transparent 80%);
+  pointer-events: none;
+}
+.parking__content {
+  position: relative;
+  z-index: 1;
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 24px clamp(24px, 6vw, 96px);
+  pointer-events: none; /* let clicks fall through to .parking__bg underneath */
+  max-width: 640px;
+}
+.parking__title {
+  font-size: clamp(30px, 3.6vw, 46px);
+  font-weight: 500;
+  line-height: 1.15;
+  color: var(--white);
+  text-transform: uppercase;
+  margin: 0 0 20px;
+}
+.parking__desc {
+  font-size: 15px;
+  line-height: 1.7;
+  color: rgba(255,255,255,.85);
+  margin: 0 0 40px;
+}
+.parking__stats {
+  display: flex;
+  width: fit-content;
+  background: var(--burgundy);
+  border: 1px solid rgba(255,255,255,.25);
+}
+.parking__stat {
+  padding: 22px 32px;
+  display: flex;
+  flex-direction: column;
+}
+.parking__stat + .parking__stat { border-left: 1px solid rgba(255,255,255,.25); }
+.parking__stat b {
+  font-size: 34px;
+  font-weight: 500;
+  color: var(--white);
+  line-height: 1;
+}
+.parking__stat b small {
+  font-size: 15px;
+  font-weight: 400;
+  vertical-align: middle;
+}
+.parking__stat span {
+  margin-top: 8px;
+  font-family: var(--font-display);
+  font-size: 12px;
+  letter-spacing: .04em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,.65);
+}
+@media (max-width: 640px) {
+  .parking__bg::after { background: linear-gradient(180deg, rgba(12,8,7,.25), rgba(12,8,7,.75)); }
+  .parking__content { max-width: none; }
+}
+
 /* ===== Планировки ===== */
-.plans {
+.plans-simple {
   background: #EEE1D9;
   padding: 120px clamp(24px, 6vw, 96px);
 }
-.plans__head {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-end;
-  flex-wrap: wrap;
-  gap: 24px;
-  margin-bottom: 20px;
-}
-.plans__title {
+.plans-simple__title {
   font-size: clamp(32px, 3.6vw, 48px);
   font-weight: 500;
   line-height: 1.1;
   color: var(--burgundy);
   text-transform: uppercase;
-  margin: 0;
+  margin: 0 0 48px;
 }
-.plans__filters {
-  display: inline-flex;
-  flex-wrap: wrap;
-}
-.plans__filter {
-  font-family: var(--font-display);
-  font-size: 14px;
-  padding: 12px 20px;
-  background: var(--white);
-  color: var(--ink);
-  border: 1px solid rgba(43,29,25,.2);
-  border-left: none;
-  cursor: pointer;
-  transition: background .25s ease, color .25s ease;
-}
-.plans__filter:first-child { border-left: 1px solid rgba(43,29,25,.2); }
-.plans__filter.is-active {
-  background: var(--ink);
-  color: var(--white);
-  border-color: var(--ink);
-}
-.plans__count {
-  font-family: var(--font-display);
-  font-size: 14px;
-  color: var(--ink);
-  opacity: .6;
-  margin: 0 0 30px;
-}
-.plans__empty {
-  font-size: 16px;
-  color: var(--ink);
-  opacity: .6;
-}
-.plans__grid {
+.plans-simple__grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-  gap: 8px;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 24px;
 }
-
-.plan-card {
-  position: relative;
+.plans-simple__card {
   background: var(--white);
-  padding: 16px;
-  box-sizing: border-box;
-}
-.plan-card__media { position: relative; }
-.plan-card__img {
-  width: 100%;
-  aspect-ratio: 4 / 3;
-  object-fit: contain; /* планировки — SVG-схемы, не фото: не обрезаем */
   padding: 24px;
   box-sizing: border-box;
-  display: block;
-}
-.plan-card__img--ph {
   display: flex;
-  align-items: center;
-  justify-content: center;
-  font-family: var(--font-display);
-  font-size: 13px;
-  color: var(--ink);
-  opacity: .5;
-  background: linear-gradient(135deg, var(--bronze-2), var(--burgundy) 60%, #3D0F0C);
+  flex-direction: column;
 }
-.plan-card__body { padding: 28px 8px 8px; }
-.plan-card__title {
-  font-size: 24px;
+.plans-simple__photo {
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  min-height: 0;
+  margin-bottom: 24px;
+}
+.plans-simple__name {
+  font-size: 22px;
   font-weight: 500;
-  color: var(--burgundy);
-  text-transform: uppercase;
-  margin: 0 0 14px;
+  color: var(--ink);
+  margin: 0 0 8px;
 }
-.plan-card__line {
+.plans-simple__meta {
   font-family: var(--font-display);
-  font-size: 17px;
+  font-size: 14px;
   color: var(--ink);
-  margin: 0 0 10px;
+  opacity: .55;
+  margin: 0 0 24px;
 }
-.plan-card__pricing {
-  margin-top: 22px;
-  display: flex;
-  align-items: flex-end;
-  justify-content: space-between;
-  gap: 12px;
-  flex-wrap: wrap;
-}
-.plan-card__ppm {
-  font-family: var(--font-display);
-  font-size: 15px;
-  color: var(--ink);
-  opacity: .6;
-}
-.plan-card__price-block { text-align: right; }
-.plan-card__price-top {
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
-  gap: 10px;
-  margin-bottom: 4px;
-}
-.plan-card__price-old {
-  text-decoration: line-through;
-  opacity: .5;
-  font-weight: 400;
-  font-size: 15px;
-  color: var(--ink);
-}
-.plan-card__badge {
+.plans-simple__btn {
+  margin-top: auto;
+  border: none;
   background: var(--burgundy);
   color: var(--white);
   font-family: var(--font-display);
-  font-size: 12px;
+  font-size: 15px;
   font-weight: 500;
-  padding: 3px 9px;
+  padding: 16px 20px;
+  cursor: pointer;
+  transition: background .25s ease;
 }
-.plan-card__price-new {
-  font-size: 26px;
-  font-weight: 500;
-  color: var(--burgundy);
-}
+.plans-simple__btn:hover { background: var(--ink); }

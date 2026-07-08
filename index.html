@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>АУРА</title>
 <link rel="stylesheet" href="assets/css/fonts.css">
-<link rel="stylesheet" href="assets/css/style.css?v=38">
+<link rel="stylesheet" href="assets/css/style.css?v=41">
 </head>
 <body>
 
@@ -217,22 +217,60 @@
   </div>
 </section>
 
-<!-- ===== Планировки ===== -->
-<section class="plans" id="layouts">
-  <div class="plans__head">
-    <h2 class="plans__title">Планировки</h2>
-    <div class="plans__filters" id="plans-filters">
-      <button class="plans__filter is-active" data-rooms="all" type="button">Все</button>
-      <button class="plans__filter" data-rooms="0" type="button">Студия</button>
-      <button class="plans__filter" data-rooms="1" type="button">1</button>
-      <button class="plans__filter" data-rooms="2" type="button">2</button>
-      <button class="plans__filter" data-rooms="3" type="button">3</button>
-      <button class="plans__filter" data-rooms="4" type="button">4+</button>
+<!-- ===== Паркинг ===== -->
+<section class="parking" id="parking">
+  <div class="ph parking__bg" data-slot="parking-bg" aria-hidden="true"><span class="ph-label">Фото — паркинг [заглушка]</span></div>
+  <div class="parking__content">
+    <h2 class="parking__title">Двухуровневый<br>подземный<br>паркинг</h2>
+    <p class="parking__desc">Доступ в паркинг организован через автоматическую систему: для резидентов — по
+      бесконтактной метке или считыванию госномера, для гостей — по разовым пропускам, сформированным
+      в мобильном приложении.<br><br>
+      Паркинг оснащён зарядными станциями для электромобилей, местом подкачки колёс, а также мойкой на
+      территории бизнес-центра.<br><br>
+      На каждом уровне установлены усилители сотовой связи, предусмотрено мягкое фоновое музыкальное
+      сопровождение.</p>
+    <div class="parking__stats">
+      <div class="parking__stat">
+        <b>563</b>
+        <span>машино-места</span>
+      </div>
+      <div class="parking__stat">
+        <b><small>от</small> 2,5<small>м</small></b>
+        <span>ширина места</span>
+      </div>
     </div>
   </div>
-  <p class="plans__count" id="plans-count"></p>
-  <div class="plans__grid" id="plans-grid"></div>
-  <p class="plans__empty" id="plans-empty" style="display:none;">По этим фильтрам планировок пока нет.</p>
+</section>
+
+<!-- ===== Планировки (просто 4 карточки, без JSON/фильтров) ===== -->
+<section class="plans-simple" id="layouts">
+  <h2 class="plans-simple__title">Планировки</h2>
+  <div class="plans-simple__grid">
+    <article class="plans-simple__card">
+      <div class="ph plans-simple__photo" data-slot="layout-1k"><span class="ph-label">Пример планировки — 1-комнатная [заглушка]</span></div>
+      <h3 class="plans-simple__name">1-комнатные</h3>
+      <p class="plans-simple__meta">Площадь от 36 м² · стоимость от 24,8 млн ₽</p>
+      <button class="plans-simple__btn" type="button">Получить предложение</button>
+    </article>
+    <article class="plans-simple__card">
+      <div class="ph plans-simple__photo" data-slot="layout-2k"><span class="ph-label">Пример планировки — 2-комнатная [заглушка]</span></div>
+      <h3 class="plans-simple__name">2-комнатные</h3>
+      <p class="plans-simple__meta">Площадь от 57 м² · стоимость от 36,7 млн ₽</p>
+      <button class="plans-simple__btn" type="button">Получить предложение</button>
+    </article>
+    <article class="plans-simple__card">
+      <div class="ph plans-simple__photo" data-slot="layout-3k"><span class="ph-label">Пример планировки — 3-комнатная [заглушка]</span></div>
+      <h3 class="plans-simple__name">3-комнатные</h3>
+      <p class="plans-simple__meta">Площадь от 86 м² · стоимость от 51,9 млн ₽</p>
+      <button class="plans-simple__btn" type="button">Получить предложение</button>
+    </article>
+    <article class="plans-simple__card">
+      <div class="ph plans-simple__photo" data-slot="layout-4k"><span class="ph-label">Пример планировки — 4-комнатная+ [заглушка]</span></div>
+      <h3 class="plans-simple__name">4-комнатные+</h3>
+      <p class="plans-simple__meta">Площадь от 108 м² · цена по запросу</p>
+      <button class="plans-simple__btn" type="button">Получить предложение</button>
+    </article>
+  </div>
 </section>
 
 <script src="assets/js/images.js"></script>
@@ -241,6 +279,5 @@
 <script src="assets/js/tab-block.js"></script>
 <script src="assets/js/infra-sync.js"></script>
 <script src="assets/js/amenities-sync.js"></script>
-<script src="assets/js/planirovki.js"></script>
 </body>
 </html>
