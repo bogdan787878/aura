@@ -5,9 +5,39 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>АУРА</title>
 <link rel="stylesheet" href="assets/css/fonts.css">
-<link rel="stylesheet" href="assets/css/style.css?v=45">
+<link rel="stylesheet" href="assets/css/style.css?v=46">
 </head>
 <body>
+
+<!-- ===== Header ===== -->
+<header class="site-header" id="site-header">
+  <div class="site-header__inner">
+    <button class="site-header__burger" id="menu-toggle" type="button" aria-label="Открыть меню">
+      <span class="burger-lines"><i></i><i></i><i></i></span>
+      <span>Меню</span>
+    </button>
+    <div class="site-header__right">
+      <a href="#layouts" class="site-header__link">Выбрать квартиру</a>
+      <a href="tel:+74951876575" class="site-header__phone">+7 (495) 187 65 75</a>
+    </div>
+  </div>
+</header>
+
+<!-- ===== Fullscreen menu ===== -->
+<nav class="site-menu" id="site-menu">
+  <button class="site-menu__close" id="menu-close" type="button" aria-label="Закрыть меню">&times;</button>
+  <ul class="site-menu__list">
+    <li><a href="#about" data-menu-link>О проекте</a></li>
+    <li><a href="#location" data-menu-link>Локация</a></li>
+    <li><a href="#infrastructure" data-menu-link>Инфраструктура</a></li>
+    <li><a href="#architecture" data-menu-link>Архитектура</a></li>
+    <li><a href="#landscaping" data-menu-link>Благоустройство</a></li>
+    <li><a href="#amenities" data-menu-link>Пространства для отдыха</a></li>
+    <li><a href="#aesthetics" data-menu-link>Эстетика и функциональность</a></li>
+    <li><a href="#parking" data-menu-link>Паркинг</a></li>
+    <li><a href="#layouts" data-menu-link>Планировки</a></li>
+  </ul>
+</nav>
 
 <!-- ===== Hero ===== -->
 <section class="hero" id="top">
@@ -283,6 +313,7 @@
   </div>
 </section>
 
+<script src="assets/js/header.js"></script>
 <script src="assets/js/images.js"></script>
 <script src="assets/js/edit-mode.js"></script>
 <script src="assets/js/about-pin.js"></script>
