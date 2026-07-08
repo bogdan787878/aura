@@ -7,7 +7,7 @@
   "location-map": "assets/img/location-map.png",
   "infra-photo-3": "assets/img/infra-photo-3.webp",
   "infra-photo-5": "assets/img/infra-photo-5.webp",
-  "amenity-photo-2": "assets/img/amenity-photo-2.jpg",
+  "amenity-photo-2": "assets/img/amenity-photo-2.webp",
   "aesthetics-banner-bg": "assets/img/aesthetics-banner-bg.webp",
   "amenities-banner-bg": "assets/img/amenities-banner-bg.webp",
   "infrastructure-banner-bg": "assets/img/infrastructure-banner-bg.webp",
@@ -19,5 +19,12 @@
   "arch-photo-3": "assets/img/arch-photo-3.webp",
   "arch-photo-1": "assets/img/arch-photo-1.webp",
   "landscaping-photo-1": "assets/img/landscaping-photo-1.webp",
-  "landscaping-photo-2": "assets/img/landscaping-photo-2.webp"
+  "landscaping-photo-2": "assets/img/landscaping-photo-2.webp",
+  "amenity-photo-3": "assets/img/amenity-photo-3.webp",
+  "amenity-photo-4": "assets/img/amenity-photo-4.webp",
+  "amenity-photo-5": "assets/img/amenity-photo-5.webp",
+  "amenity-photo-6": "assets/img/amenity-photo-6.webp",
+  "amenity-photo-7": "assets/img/amenity-photo-7.webp",
+  "amenity-photo-8": "assets/img/amenity-photo-8.webp",
+  "amenity-photo-1": "assets/img/amenity-photo-1.webp"
 }

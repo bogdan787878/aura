@@ -150,7 +150,7 @@ body {
   text-transform: uppercase;
 }
 .about-pin__body {
-  font-size: clamp(17px, 1.3vw, 20px);
+  font-size: clamp(19px, 1.4vw, 22px);
   line-height: 1.3;
   color: var(--ink);
   max-width: 46ch;
@@ -326,7 +326,7 @@ body {
 }
 .infra-pin__desc {
   margin: 0;
-  font-size: 18px;
+  font-size: 20px;
   line-height: 1.3;
   color: var(--ink);
   max-width: 46ch;
@@ -402,7 +402,7 @@ body {
 .tab-block__desc {
   display: none;
   margin: 28px 0 0;
-  font-size: 20px;
+  font-size: 22px;
   line-height: 1.3;
   color: rgba(255,255,255,.85);
   max-width: 52ch;
@@ -449,7 +449,7 @@ body {
 }
 .amenities-pin__desc {
   margin: 0;
-  font-size: 18px;
+  font-size: 20px;
   line-height: 1.3;
   color: var(--ink);
   max-width: 46ch;
@@ -485,7 +485,7 @@ body {
   margin: 0 0 20px;
 }
 .aesthetics__desc {
-  font-size: 18px;
+  font-size: 20px;
   line-height: 1.3;
   color: var(--ink);
   opacity: .8;
@@ -556,7 +556,7 @@ body {
   margin: 0 0 20px;
 }
 .parking__desc {
-  font-size: 18px;
+  font-size: 20px;
   line-height: 1.3;
   color: rgba(255,255,255,.85);
   margin: 0 0 40px;
