@@ -272,28 +272,28 @@ body {
 
 @media (max-width: 900px) {
   .hero-logo {
-    top: 172px;
+    top: 120px;
     width: min(620px, 100vw);
   }
 }
 
-/* ===== О проекте — pinned scroll block ===== */
+/* ===== О проекте — sticky сайдбар (заголовок+описание) + скролл фото со
+   значением под каждым, тот же паттерн, что и .infra-pin/.amenities-pin ===== */
 .about-pin {
   position: relative;
-  height: 300vh; /* 3 steps × 100vh of scroll to drive the pin */
   background: var(--white);
+  display: grid;
+  grid-template-columns: minmax(320px, 38%) 1fr;
+  gap: 48px;
+  padding: 140px 0;
 }
-.about-pin__sticky {
+.about-pin__text {
   position: sticky;
   top: 0;
   height: 100svh;
-  display: grid;
-  grid-template-columns: minmax(320px, 38%) 1fr;
-  align-items: center;
-  gap: 48px;
-  overflow: hidden;
-}
-.about-pin__text {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   padding: 0 24px 0 clamp(24px, 6vw, 96px);
 }
 .about-pin__title {
@@ -311,54 +311,40 @@ body {
   max-width: 46ch;
 }
 .about-pin__media {
-  position: relative;
-  aspect-ratio: 5 / 4;
-  max-height: 640px;
+  padding-right: clamp(24px, 6vw, 96px);
+  display: flex;
+  flex-direction: column;
+  gap: 96px;
 }
 .about-pin__photo {
-  position: absolute;
-  inset: 0;
-  border-radius: 0;
+  width: 100%;
+  aspect-ratio: 5 / 4;
   min-height: 0;
-  opacity: 0;
-  pointer-events: none; /* stacked layers — only the visible one should catch clicks */
-  transition: opacity .6s ease;
 }
-.about-pin__photo.is-active { opacity: 1; pointer-events: auto; }
-.about-pin__slide { display: contents; }
-.about-pin__slide-label { display: none; }
-.about-pin__badge {
-  position: absolute;
-  left: -40px;
-  bottom: 64px;
-  z-index: 3;
-  background: var(--burgundy);
-  color: var(--white);
+.about-pin__slide-label {
+  display: block;
+  margin: 14px 0 0;
   font-family: var(--font-display);
-  font-size: clamp(24px, 2.4vw, 34px);
+  font-size: clamp(19px, 1.6vw, 24px);
   font-weight: 500;
+  color: var(--burgundy);
   text-transform: uppercase;
   letter-spacing: 0.02em;
-  padding: 26px 40px;
-  white-space: nowrap;
 }
 @media (max-width: 900px) {
-  /* На мобильном отключаем pin-scroll (высота 300vh + sticky) и кроссфейд —
-     на маленьком экране это не помещается и выглядит как лишняя анимация.
-     Вместо этого простой горизонтальный свайп-слайдер из 3 фото. */
-  .about-pin { height: auto; }
-  .about-pin__sticky {
+  .about-pin {
+    grid-template-columns: 1fr;
+    gap: 24px;
+    padding: 100px 0 60px;
+  }
+  .about-pin__text {
     position: relative;
     top: auto;
     height: auto;
-    grid-template-columns: 1fr;
-    padding: 100px 0 60px;
-    gap: 24px;
+    padding: 0 24px;
   }
   .about-pin__media {
-    aspect-ratio: auto;
-    max-height: none;
-    display: flex;
+    flex-direction: row;
     gap: 12px;
     padding: 0 24px;
     scroll-padding-left: 24px;
@@ -367,29 +353,11 @@ body {
     -webkit-overflow-scrolling: touch;
   }
   .about-pin__slide {
-    display: block;
     flex: 0 0 82%;
     scroll-snap-align: start;
   }
-  .about-pin__photo {
-    position: relative;
-    inset: auto;
-    opacity: 1;
-    pointer-events: auto;
-    transition: none;
-    aspect-ratio: 4 / 3;
-  }
-  .about-pin__slide-label {
-    display: block;
-    margin: 14px 0 0;
-    font-family: var(--font-display);
-    font-size: 19px;
-    font-weight: 500;
-    color: var(--burgundy);
-    text-transform: uppercase;
-    letter-spacing: 0.02em;
-  }
-  .about-pin__badge { display: none; }
+  .about-pin__photo { aspect-ratio: 4 / 3; }
+  .about-pin__slide-label { font-size: 19px; }
 }
 
 /* ===== Локация — карта на фоне ===== */
@@ -765,6 +733,7 @@ body {
   .tab-block__title { order: 1; }
   .tab-block__media { order: 2; }
   .tab-block__tabs { order: 3; margin-top: 24px; }
+  .tab-block__tab { font-size: 16px; }
   .tab-block__desc { order: 4; }
   .terms-stats,
   .terms-plans { order: 5; }
@@ -981,6 +950,7 @@ body {
 }
 @media (max-width: 900px) {
   .split-info { grid-template-columns: 1fr; min-height: 0; }
+  .split-info + .split-info { margin-top: 48px; }
   .split-info__text { padding: 40px 24px; }
   .split-info__photo { min-height: 320px; order: -1; }
   .split-info__stats { gap: 32px; }
@@ -1119,6 +1089,26 @@ body {
 }
 .plans-simple__btn:hover { background: var(--ink); }
 
+@media (max-width: 900px) {
+  /* Как и в других блоках — на мобильном горизонтальный свайп-слайдер
+     вместо сетки карточек. */
+  .plans-simple { padding: 60px 0; }
+  .plans-simple__title { padding: 0 24px; }
+  .plans-simple__grid {
+    display: flex;
+    gap: 16px;
+    padding: 0 24px;
+    scroll-padding-left: 24px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+  }
+  .plans-simple__card {
+    flex: 0 0 82%;
+    scroll-snap-align: start;
+  }
+}
+
 /* ===== Мобильная унификация: все описания одним размером, поменьше ===== */
 @media (max-width: 900px) {
   .about-pin__body,
@@ -1145,5 +1135,6 @@ body {
   .plans-simple__title {
     font-size: 32px;
   }
-  #amenities-banner .section-photo__title br { display: none; }
+  #amenities-banner .section-photo__title br,
+  #aesthetics-banner .section-photo__title br { display: none; }
 }
