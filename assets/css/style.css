@@ -94,6 +94,13 @@
 @media (max-width: 640px) {
   .site-header__link { display: none; }
 }
+@media (max-width: 900px) {
+  .site-header__burger-label { display: none; }
+  .site-header__inner .site-header__logo {
+    left: 25%;
+    width: 70px;
+  }
+}
 @media (max-width: 380px) {
   /* На самых узких экранах бургер+"Меню" слева и телефон справа могут
      не помещаться в одну строку — подстраховываемся размером и паддингом. */
@@ -401,6 +408,11 @@ body {
 }
 .location-map__bg::before { display: none; }
 .location-map__bg.has-photo { background-color: transparent; }
+.location-map__bg--mobile { display: none; }
+@media (max-width: 900px) {
+  .location-map__bg--desktop { display: none; }
+  .location-map__bg--mobile { display: block; }
+}
 
 .location-map__content {
   position: relative;

@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>АУРА</title>
 <link rel="stylesheet" href="assets/css/fonts.css">
-<link rel="stylesheet" href="assets/css/style.css?v=59">
+<link rel="stylesheet" href="assets/css/style.css?v=61">
 </head>
 <body>
 
@@ -14,7 +14,7 @@
   <div class="site-header__inner">
     <button class="site-header__burger" id="menu-toggle" type="button" aria-label="Открыть меню">
       <span class="burger-lines"><i></i><i></i><i></i></span>
-      <span>Меню</span>
+      <span class="site-header__burger-label">Меню</span>
     </button>
     <div class="ph site-header__logo" data-slot="logo" data-fit="contain" aria-hidden="true"><span class="ph-label">Лого</span></div>
     <div class="site-header__right">
@@ -80,10 +80,10 @@
 
 <!-- ===== Локация ===== -->
 <section class="location-map" id="location">
-  <div class="ph location-map__bg" data-slot="location-map" aria-hidden="true"><span class="ph-label">Карта района — одна картинка [заглушка]</span></div>
+  <div class="ph location-map__bg location-map__bg--desktop" data-slot="location-map" aria-hidden="true"><span class="ph-label">Карта района — одна картинка [заглушка]</span></div>
+  <div class="ph location-map__bg location-map__bg--mobile" data-slot="location-map-mobile" aria-hidden="true"><span class="ph-label">Карта района — мобильная картинка [заглушка]</span></div>
   <div class="location-map__content">
     <div class="location-map__head">
-      <span class="location-map__eyebrow">Локация и окружение</span>
       <h2 class="location-map__title">Даниловский<br>район</h2>
     </div>
     <ul class="location-map__stats">
