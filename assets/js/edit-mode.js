@@ -54,6 +54,9 @@
             target.style.backgroundRepeat = 'no-repeat';
             target.style.backgroundPosition = 'center';
             target.classList.add('has-photo');
+            if (target.dataset.autoHeight === 'mobile' && window.__auraApplyAutoHeight) {
+              window.__auraApplyAutoHeight(target, data.path);
+            }
           });
           setStatus('Загружено, готово к публикации');
         } else {

@@ -515,6 +515,26 @@ body {
   text-shadow: 0 1px 12px rgba(0,0,0,.3), 0 1px 3px rgba(0,0,0,.35);
 }
 
+/* На мобильном для отдельно загруженного фото секция сама подстраивает
+   высоту под его пропорции (aspect-ratio проставляет images.js/edit-mode.js) —
+   вместо фиксированных 100svh и фото, обрезанного под высоту экрана. */
+.section-photo__bg--mobile { display: none; }
+@media (max-width: 900px) {
+  .section-photo { height: auto; min-height: 0; }
+  .section-photo__bg--desktop { display: none; }
+  .section-photo__bg--mobile {
+    display: block;
+    position: relative;
+    width: 100%;
+  }
+  .section-photo__bg--mobile.has-photo { min-height: 0; }
+  .section-photo__content {
+    position: absolute;
+    inset: 0;
+    min-height: 0;
+  }
+}
+
 /* ===== Внутренняя инфраструктура — обычный sticky-сайдбар (без JS) =====
    Заголовок слева "прилипает" стандартным CSS position:sticky, пока справа
    в обычном потоке пролистываются 3 карточки (фото + подпись + описание). */
@@ -729,8 +749,23 @@ body {
 .terms-plan p b { color: var(--white); font-weight: 500; }
 
 @media (max-width: 900px) {
-  .tab-block { grid-template-columns: 1fr; }
-  .tab-block--reverse .tab-block__content { order: -1; }
+  /* Единый порядок для обеих ориентаций (обычной и --reverse): заголовок,
+     фото, табы, описание. .tab-block__content переводим в display:contents,
+     чтобы его дети стали независимыми flex-элементами наравне с .tab-block__media
+     и подчинялись порядку order ниже, а не порядку вложенности в разметке. */
+  .tab-block {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+  }
+  .tab-block__content { display: contents; }
+  .tab-block__title { order: 1; }
+  .tab-block__media { order: 2; }
+  .tab-block__tabs { order: 3; margin-top: 24px; }
+  .tab-block__desc { order: 4; }
+  .terms-stats,
+  .terms-plans { order: 5; }
   .tab-block + .tab-block { margin-top: 72px; }
   .terms-plans { grid-template-columns: 1fr; }
 }
@@ -970,6 +1005,25 @@ body {
   margin: 0;
 }
 
+@media (max-width: 900px) {
+  /* Как и в других блоках — на мобильном горизонтальный свайп-слайдер
+     из карточек (фото + заголовок + описание) вместо сетки. */
+  .comfort { padding: 60px 0; }
+  .comfort__title { padding: 0 24px; }
+  .comfort__grid {
+    display: flex;
+    gap: 16px;
+    padding: 0 24px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+  }
+  .comfort__card {
+    flex: 0 0 82%;
+    scroll-snap-align: start;
+  }
+}
+
 /* ===== Планировки ===== */
 .plans-simple {
   background: #EEE1D9;
@@ -1055,4 +1109,19 @@ body {
     font-size: 15px;
     line-height: 1.5;
   }
+}
+
+/* ===== Мобильная унификация: все заголовки одним размером ===== */
+@media (max-width: 900px) {
+  .about-pin__title,
+  .location-map__title,
+  .section-photo__title,
+  .tab-block__title,
+  .aesthetics__subtitle,
+  .split-info__title,
+  .comfort__title,
+  .plans-simple__title {
+    font-size: 32px;
+  }
+  #amenities-banner .section-photo__title br { display: none; }
 }

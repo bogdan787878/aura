@@ -13,8 +13,22 @@
           el.style.backgroundRepeat = 'no-repeat';
           el.style.backgroundPosition = 'center';
           el.classList.add('has-photo');
+          if (el.dataset.autoHeight === 'mobile') applyAutoHeight(el, path);
         });
       });
     })
     .catch(function () {});
+
+  // Блоки "обложка + заголовок": на мобильном высота секции подстраивается
+  // под пропорции загруженного фото (см. .section-photo__bg--mobile в CSS).
+  function applyAutoHeight(el, path) {
+    var img = new Image();
+    img.onload = function () {
+      if (img.naturalWidth && img.naturalHeight) {
+        el.style.aspectRatio = img.naturalWidth + ' / ' + img.naturalHeight;
+      }
+    };
+    img.src = path;
+  }
+  window.__auraApplyAutoHeight = applyAutoHeight;
 })();

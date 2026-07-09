@@ -38,5 +38,8 @@
   "comfort-photo-2": "assets/img/comfort-photo-2.png",
   "comfort-photo-3": "assets/img/comfort-photo-3.png",
   "cellars-bg": "assets/img/cellars-bg.webp",
-  "terms-photo": "assets/img/terms-photo.png"
+  "terms-photo": "assets/img/terms-photo.png",
+  "infrastructure-banner-bg-mobile": "assets/img/infrastructure-banner-bg-mobile.webp",
+  "amenities-banner-bg-mobile": "assets/img/amenities-banner-bg-mobile.webp",
+  "aesthetics-banner-bg-mobile": "assets/img/aesthetics-banner-bg-mobile.webp"
 }
