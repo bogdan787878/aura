@@ -901,6 +901,7 @@ body {
   background: var(--white);
   min-height: 100svh;
 }
+.split-info + .split-info { margin-top: 8px; }
 .split-info__text {
   padding: 100px clamp(24px, 6vw, 96px);
   display: flex;
