@@ -361,6 +361,7 @@ body {
     display: flex;
     gap: 12px;
     padding: 0 24px;
+    scroll-padding-left: 24px;
     overflow-x: auto;
     scroll-snap-type: x mandatory;
     -webkit-overflow-scrolling: touch;
@@ -605,6 +606,7 @@ body {
     flex-direction: row;
     gap: 16px;
     padding: 0 24px;
+    scroll-padding-left: 24px;
     overflow-x: auto;
     scroll-snap-type: x mandatory;
     -webkit-overflow-scrolling: touch;
@@ -835,6 +837,7 @@ body {
     flex-direction: row;
     gap: 16px;
     padding: 0 24px;
+    scroll-padding-left: 24px;
     overflow-x: auto;
     scroll-snap-type: x mandatory;
     -webkit-overflow-scrolling: touch;
@@ -901,8 +904,25 @@ body {
 .aesthetics__photo:nth-child(4) { margin-top: 220px; }
 
 @media (max-width: 900px) {
-  .aesthetics__cascade { flex-direction: column; }
-  .aesthetics__photo { width: 100%; margin-top: 0 !important; aspect-ratio: 4 / 3; }
+  /* Как и в других блоках — на мобильном горизонтальный свайп-слайдер
+     вместо каскада со смещением по вертикали. */
+  .aesthetics { padding: 60px 0 60px; }
+  .aesthetics__subtitle,
+  .aesthetics__desc { padding: 0 24px; }
+  .aesthetics__cascade {
+    gap: 16px;
+    padding: 0 24px;
+    scroll-padding-left: 24px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+  }
+  .aesthetics__photo {
+    flex: 0 0 82%;
+    margin-top: 0 !important;
+    aspect-ratio: 4 / 3;
+    scroll-snap-align: start;
+  }
 }
 
 /* ===== Reusable: white text panel + full-height photo (Паркинг, Келлеры) ===== */
@@ -961,6 +981,7 @@ body {
 }
 @media (max-width: 900px) {
   .split-info { grid-template-columns: 1fr; min-height: 0; }
+  .split-info__text { padding: 40px 24px; }
   .split-info__photo { min-height: 320px; order: -1; }
   .split-info__stats { gap: 32px; }
 }
@@ -1014,6 +1035,7 @@ body {
     display: flex;
     gap: 16px;
     padding: 0 24px;
+    scroll-padding-left: 24px;
     overflow-x: auto;
     scroll-snap-type: x mandatory;
     -webkit-overflow-scrolling: touch;
