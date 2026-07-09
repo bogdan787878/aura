@@ -35,7 +35,10 @@
   padding: 22px clamp(24px, 6vw, 96px);
 }
 /* Логотип скрыт над хиро, появляется по центру хедера после скролла */
-.site-header__logo {
+/* Компаунд-селектор нужен для специфичности: .ph определён ниже по файлу
+   и при равной специфичности с .site-header__logo перебивал бы position/
+   min-height (ловили баг — лого выпадало в поток и растягивало хедер). */
+.site-header__inner .site-header__logo {
   position: absolute;
   left: 50%;
   top: 50%;
