@@ -263,6 +263,13 @@ body {
   color: var(--white);
 }
 
+@media (max-width: 900px) {
+  .hero-logo {
+    top: 172px;
+    width: min(620px, 100vw);
+  }
+}
+
 /* ===== О проекте — pinned scroll block ===== */
 .about-pin {
   position: relative;
@@ -311,6 +318,8 @@ body {
   transition: opacity .6s ease;
 }
 .about-pin__photo.is-active { opacity: 1; pointer-events: auto; }
+.about-pin__slide { display: contents; }
+.about-pin__slide-label { display: none; }
 .about-pin__badge {
   position: absolute;
   left: -40px;
@@ -349,15 +358,28 @@ body {
     scroll-snap-type: x mandatory;
     -webkit-overflow-scrolling: touch;
   }
+  .about-pin__slide {
+    display: block;
+    flex: 0 0 82%;
+    scroll-snap-align: start;
+  }
   .about-pin__photo {
     position: relative;
     inset: auto;
     opacity: 1;
     pointer-events: auto;
     transition: none;
-    flex: 0 0 82%;
     aspect-ratio: 4 / 3;
-    scroll-snap-align: start;
+  }
+  .about-pin__slide-label {
+    display: block;
+    margin: 14px 0 0;
+    font-family: var(--font-display);
+    font-size: 19px;
+    font-weight: 500;
+    color: var(--burgundy);
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
   }
   .about-pin__badge { display: none; }
 }
@@ -1008,3 +1030,17 @@ body {
   transition: background .25s ease;
 }
 .plans-simple__btn:hover { background: var(--ink); }
+
+/* ===== Мобильная унификация: все описания одним размером, поменьше ===== */
+@media (max-width: 900px) {
+  .about-pin__body,
+  .tab-block__desc,
+  .infra-pin__item-text,
+  .amenities-pin__item-text,
+  .aesthetics__desc,
+  .split-info__desc p,
+  .comfort__desc {
+    font-size: 15px;
+    line-height: 1.5;
+  }
+}
