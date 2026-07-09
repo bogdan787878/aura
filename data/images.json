@@ -41,5 +41,9 @@
   "terms-photo": "assets/img/terms-photo.png",
   "infrastructure-banner-bg-mobile": "assets/img/infrastructure-banner-bg-mobile.webp",
   "amenities-banner-bg-mobile": "assets/img/amenities-banner-bg-mobile.webp",
-  "aesthetics-banner-bg-mobile": "assets/img/aesthetics-banner-bg-mobile.webp"
+  "aesthetics-banner-bg-mobile": "assets/img/aesthetics-banner-bg-mobile.webp",
+  "footer-logo-mangazeya": "assets/img/footer-logo-mangazeya.svg",
+  "footer-logo-aura": "assets/img/footer-logo-aura.svg",
+  "social-vk": "assets/img/social-vk.svg",
+  "social-telegram": "assets/img/social-telegram.svg"
 }
