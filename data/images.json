@@ -1,6 +1,6 @@
 {
   "logo": "assets/img/logo.svg",
-  "hero-bg": "assets/img/hero-bg.webp",
+  "hero-bg": "assets/img/hero-bg.png",
   "about-photo-3": "assets/img/about-photo-3.webp",
   "about-photo-1": "assets/img/about-photo-1.webp",
   "about-photo-2": "assets/img/about-photo-2.webp",
@@ -30,5 +30,11 @@
   "aesthetics-photo-2": "assets/img/aesthetics-photo-2.webp",
   "aesthetics-photo-3": "assets/img/aesthetics-photo-3.webp",
   "aesthetics-photo-4": "assets/img/aesthetics-photo-4.webp",
-  "aesthetics-photo-1": "assets/img/aesthetics-photo-1.webp"
+  "aesthetics-photo-1": "assets/img/aesthetics-photo-1.webp",
+  "infra-photo-4": "assets/img/infra-photo-4.png",
+  "comfort-photo-1": "assets/img/comfort-photo-1.png",
+  "comfort-photo-2": "assets/img/comfort-photo-2.png",
+  "comfort-photo-3": "assets/img/comfort-photo-3.png",
+  "cellars-bg": "assets/img/cellars-bg.webp",
+  "terms-photo": "assets/img/terms-photo.png"
 }

@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>АУРА</title>
 <link rel="stylesheet" href="assets/css/fonts.css">
-<link rel="stylesheet" href="assets/css/style.css?v=49">
+<link rel="stylesheet" href="assets/css/style.css?v=54">
 </head>
 <body>
 
@@ -258,27 +258,68 @@
 </section>
 
 <!-- ===== Паркинг ===== -->
-<section class="parking" id="parking">
-  <div class="ph parking__bg" data-slot="parking-bg" aria-hidden="true"><span class="ph-label">Фото — паркинг [заглушка]</span></div>
-  <div class="parking__content">
-    <h2 class="parking__title">Двухуровневый<br>подземный<br>паркинг</h2>
-    <p class="parking__desc">Доступ в паркинг организован через автоматическую систему: для резидентов — по
-      бесконтактной метке или считыванию госномера, для гостей — по разовым пропускам, сформированным
-      в мобильном приложении.<br><br>
-      Паркинг оснащён зарядными станциями для электромобилей, местом подкачки колёс, а также мойкой на
-      территории бизнес-центра.<br><br>
-      На каждом уровне установлены усилители сотовой связи, предусмотрено мягкое фоновое музыкальное
-      сопровождение.</p>
-    <div class="parking__stats">
-      <div class="parking__stat">
-        <b>563</b>
-        <span>машино-места</span>
-      </div>
-      <div class="parking__stat">
-        <b><small>от</small> 2,5<small>м</small></b>
-        <span>ширина места</span>
-      </div>
+<section class="split-info" id="parking">
+  <div class="split-info__text">
+    <h2 class="split-info__title">Двухуровневый<br>подземный паркинг</h2>
+    <div class="split-info__stats">
+      <div class="split-info__stat"><b>563</b><span>Машино-места</span></div>
+      <div class="split-info__stat"><b>2,5+ м</b><span>Ширина места</span></div>
     </div>
+    <div class="split-info__desc">
+      <p>Доступ в паркинг организован через автоматическую систему: для резидентов — по бесконтактной метке
+        или считыванию госномера, для гостей — по разовым цифровым пропускам, которые можно отправить
+        напрямую через мобильное приложение. Это ускоряет процесс пропуска и позволяет не тратить время
+        на ожидание.</p>
+      <p>Для максимального удобства резидентов на территории паркинга предусмотрена собственная мойка
+        для автомобилей. Паркинг оснащён зарядными станциями для электромобилей. На каждом уровне
+        установлены усилители сотовой связи и FM-сигнала. Фоновое музыкальное сопровождение настраивает
+        на рабочий день или вечерний отдых.</p>
+    </div>
+  </div>
+  <div class="ph split-info__photo" data-slot="parking-bg"><span class="ph-label">Фото — паркинг [заглушка]</span></div>
+</section>
+
+<!-- ===== Келлеры ===== -->
+<section class="split-info" id="cellars">
+  <div class="split-info__text">
+    <h2 class="split-info__title">Келлеры</h2>
+    <div class="split-info__stats">
+      <div class="split-info__stat"><b>196</b><span>Келлеров</span></div>
+      <div class="split-info__stat"><b>3,8 м²</b><span>Средняя площадь</span></div>
+    </div>
+    <div class="split-info__desc">
+      <p>Приватные светлые кладовые, предназначенные для безупречного хранения личных коллекций и сезонных
+        аксессуаров. Они гармонично сочетаются с современными и технологичными велопарковками. Теперь всё,
+        что может нарушать эстетику интерьера, можно изящно разместить в специально спроектированных
+        пространствах. Здесь найдётся место багажу для путешествий, экипировке для спорта и детским
+        принадлежностям.</p>
+    </div>
+  </div>
+  <div class="ph split-info__photo" data-slot="cellars-bg"><span class="ph-label">Фото — келлеры [заглушка]</span></div>
+</section>
+
+<!-- ===== Решения для повседневного комфорта ===== -->
+<section class="comfort" id="comfort">
+  <h2 class="comfort__title">Решения для<br>повседневного комфорта</h2>
+  <div class="comfort__grid">
+    <article class="comfort__card">
+      <div class="ph comfort__photo" data-slot="comfort-photo-1"><span class="ph-label">Фото — консьерж-сервис [заглушка]</span></div>
+      <h3 class="comfort__name">Консьерж-сервис</h3>
+      <p class="comfort__desc">Консьерж решит повседневные задачи: вызовет мастера и клининг, примет посылку,
+        погуляет с домашним питомцем и забронирует общественные пространства.</p>
+    </article>
+    <article class="comfort__card">
+      <div class="ph comfort__photo" data-slot="comfort-photo-2"><span class="ph-label">Фото — беллмен-сервис [заглушка]</span></div>
+      <h3 class="comfort__name">Беллмен-сервис</h3>
+      <p class="comfort__desc">Беллмены обеспечивают встречу и приветствие резидентов и их гостей, помогают
+        с багажом, а также принимают посылки у курьеров и организуют их доставку непосредственно до квартиры.</p>
+    </article>
+    <article class="comfort__card">
+      <div class="ph comfort__photo" data-slot="comfort-photo-3"><span class="ph-label">Фото — мобильное приложение [заглушка]</span></div>
+      <h3 class="comfort__name">Мобильное приложение</h3>
+      <p class="comfort__desc">В мобильном приложении можно бронировать общественные пространства, управлять
+        системой «умный дом», отправлять заявки в управляющую компанию и оценивать качество услуг.</p>
+    </article>
   </div>
 </section>
 
@@ -314,6 +355,70 @@
       <p class="plans-simple__price">Стоимость от 51,9 млн ₽</p>
       <button class="plans-simple__btn" type="button">Получить предложение</button>
     </article>
+  </div>
+</section>
+
+<!-- ===== Условия покупки ===== -->
+<section class="terms-wrap" id="purchase">
+  <div class="tab-block tab-block--reverse">
+    <div class="tab-block__content">
+      <h2 class="tab-block__title">Условия<br>покупки</h2>
+      <div class="tab-block__tabs">
+        <button class="tab-block__tab is-active" data-tab="0" type="button">Ипотека</button>
+        <button class="tab-block__tab" data-tab="1" type="button">Рассрочка</button>
+        <button class="tab-block__tab" data-tab="2" type="button">Trade-in</button>
+      </div>
+
+      <p class="tab-block__desc is-active" data-tab="0">Мы предлагаем эксклюзивный сервис сопровождения сделок
+        с ипотекой. Наши эксперты подберут оптимальные условия и возьмут на себя всю бумажную работу
+        и переговоры с банком, гарантируя ваше спокойствие на каждом этапе.</p>
+      <p class="tab-block__desc" data-tab="1">Для тех, кто ценит время: весь процесс, от заявки до оформления
+        рассрочки, занимает менее недели. Персональный менеджер подберёт наиболее подходящие условия.</p>
+      <p class="tab-block__desc" data-tab="2">Купите квартиру в премиальном доме, не дожидаясь продажи
+        вторичной недвижимости. Мы полностью берём на себя организацию безопасной сделки: вам не нужно
+        самостоятельно заниматься поиском покупателя, показами и подготовкой документов.</p>
+
+      <div class="terms-stats is-active" data-tab="0">
+        <div class="terms-stat"><b>От 20%</b><span>Первоначальный взнос</span></div>
+        <div class="terms-stat"><b>До 2 дней</b><span>Одобрение заявки</span></div>
+        <div class="terms-stat"><b>100%</b><span>Гарантии</span></div>
+      </div>
+
+      <div class="terms-plans" data-tab="1">
+        <div class="terms-plan">
+          <h4>Рассрочка на индивидуальных условиях</h4>
+          <p>Первоначальный взнос <b>от 30%</b></p>
+          <p>Период действия <b>до 16 месяцев</b></p>
+          <p>Выплаты фиксированными платежами <b>от 100 000 ₽/мес</b></p>
+        </div>
+        <div class="terms-plan">
+          <h4>Рассрочка с фиксированным платежом</h4>
+          <p>Первоначальный взнос <b>от 30%</b></p>
+          <p>Период действия <b>до 16 месяцев</b></p>
+          <p>Выплаты фиксированными платежами <b>от 150 000 ₽/мес</b> ежемесячно</p>
+        </div>
+        <div class="terms-plan">
+          <h4>Классическая рассрочка</h4>
+          <p>Подберём комфортный график оплаты с учётом ваших возможностей и предпочтений. Для получения
+            подробной консультации и индивидуального расчёта обратитесь в дом продаж.</p>
+        </div>
+        <div class="terms-plan">
+          <h4>Рассрочка без ежемесячных платежей</h4>
+          <p>Первоначальный взнос <b>от 20%</b></p>
+          <p>Период действия <b>до 9 месяцев</b></p>
+          <p>Без ежемесячных взносов — единоразовое погашение в конце срока.</p>
+        </div>
+      </div>
+
+      <div class="terms-stats" data-tab="2">
+        <div class="terms-stat"><b>100%</b><span>Гарантия фиксации стоимости новой квартиры в период сделки</span></div>
+        <div class="terms-stat"><b>45 дней</b><span>На оценку вашей квартиры и подготовку к сделке</span></div>
+        <div class="terms-stat"><b>14 дней</b><span>Выкуп вторичной недвижимости по экспресс trade-in</span></div>
+      </div>
+    </div>
+    <div class="tab-block__media">
+      <div class="ph tab-block__photo is-active" data-slot="terms-photo"><span class="ph-label">Фото — условия покупки, одна картинка на все табы [заглушка]</span></div>
+    </div>
   </div>
 </section>
 
