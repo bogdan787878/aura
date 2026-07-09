@@ -1106,6 +1106,12 @@ body {
   .plans-simple__card {
     flex: 0 0 82%;
     scroll-snap-align: start;
+    padding: 20px;
+  }
+  .plans-simple__photo {
+    aspect-ratio: 4 / 3;
+    margin-bottom: 16px;
+    padding: 12px;
   }
 }
 
