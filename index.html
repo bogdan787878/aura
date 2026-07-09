@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>АУРА</title>
 <link rel="stylesheet" href="assets/css/fonts.css">
-<link rel="stylesheet" href="assets/css/style.css?v=54">
+<link rel="stylesheet" href="assets/css/style.css?v=55">
 </head>
 <body>
 
@@ -16,6 +16,7 @@
       <span class="burger-lines"><i></i><i></i><i></i></span>
       <span>Меню</span>
     </button>
+    <div class="ph site-header__logo" data-slot="logo" data-fit="contain" aria-hidden="true"><span class="ph-label">Лого</span></div>
     <div class="site-header__right">
       <a href="#layouts" class="site-header__link">Выбрать квартиру</a>
       <a href="tel:+74951876575" class="site-header__phone">+7 (495) 187 65 75</a>
@@ -72,12 +73,35 @@
 <section class="location-map" id="location">
   <div class="ph location-map__bg" data-slot="location-map" aria-hidden="true"><span class="ph-label">Карта района — одна картинка [заглушка]</span></div>
   <div class="location-map__content">
-    <h2 class="location-map__title">Даниловский<br>район</h2>
+    <div class="location-map__head">
+      <span class="location-map__eyebrow">Локация и окружение</span>
+      <h2 class="location-map__title">Даниловский<br>район</h2>
+    </div>
     <ul class="location-map__stats">
-      <li><span class="num">5</span><span class="label">минут<br>м. «Тульская»</span></li>
-      <li><span class="num">6</span><span class="label">минут<br>ТТК</span></li>
-      <li><span class="num">7</span><span class="label">минут<br>Даниловский рынок</span></li>
-      <li><span class="num">10</span><span class="label">минут<br>Садовое кольцо</span></li>
+      <li>
+        <span class="stat-line"><b>5</b> минут
+          <svg class="icon-walk" viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><circle cx="12" cy="4" r="2" fill="currentColor"/><path d="M9 22l1-7-3-2 1-5c0-1 1-2 2-2h4c1 0 2 1 2 2l1 5-3 2 1 7" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </span>
+        <span class="label">М. «Тульская»</span>
+      </li>
+      <li>
+        <span class="stat-line"><b>6</b> минут
+          <svg class="icon-car" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M4 16l1.5-5A2 2 0 0 1 7.4 9.5h9.2A2 2 0 0 1 18.5 11L20 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/><path d="M3 16h18v2.5a1 1 0 0 1-1 1h-1.5a1 1 0 0 1-1-1V17H6.5v1.5a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V16z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/><circle cx="7" cy="16.5" r="1.3" fill="currentColor"/><circle cx="17" cy="16.5" r="1.3" fill="currentColor"/></svg>
+        </span>
+        <span class="label">ТТК</span>
+      </li>
+      <li>
+        <span class="stat-line"><b>7</b> минут
+          <svg class="icon-walk" viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><circle cx="12" cy="4" r="2" fill="currentColor"/><path d="M9 22l1-7-3-2 1-5c0-1 1-2 2-2h4c1 0 2 1 2 2l1 5-3 2 1 7" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </span>
+        <span class="label">Даниловский рынок</span>
+      </li>
+      <li>
+        <span class="stat-line"><b>10</b> минут
+          <svg class="icon-car" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M4 16l1.5-5A2 2 0 0 1 7.4 9.5h9.2A2 2 0 0 1 18.5 11L20 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/><path d="M3 16h18v2.5a1 1 0 0 1-1 1h-1.5a1 1 0 0 1-1-1V17H6.5v1.5a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V16z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/><circle cx="7" cy="16.5" r="1.3" fill="currentColor"/><circle cx="17" cy="16.5" r="1.3" fill="currentColor"/></svg>
+        </span>
+        <span class="label">Садовое кольцо</span>
+      </li>
     </ul>
   </div>
 </section>
@@ -100,31 +124,49 @@
          data-caption="Ресторан авторской кухни"
          data-desc="Ресторан авторской кухни с открытой верандой в отдельном двухэтажном здании. Здесь можно отметить семейный праздник, провести вечер в компании друзей или устроить воскресный завтрак с близкими.">
       <div class="ph infra-pin__photo" data-slot="infra-photo-1"><span class="ph-label">Фото — ресторан авторской кухни [заглушка]</span></div>
+    
+      <h4 class="infra-pin__item-title">Ресторан авторской кухни</h4>
+      <p class="infra-pin__item-text">Ресторан авторской кухни с открытой верандой в отдельном двухэтажном здании. Здесь можно отметить семейный праздник, провести вечер в компании друзей или устроить воскресный завтрак с близкими.</p>
     </div>
     <div class="infra-pin__item"
          data-caption="Инновационная медицинская клиника"
          data-desc="Высокотехнологичная медицинская клиника с программами чек-ап, восстановительной и спортивной медициной.">
       <div class="ph infra-pin__photo" data-slot="infra-photo-2"><span class="ph-label">Фото — инновационная медицинская клиника [заглушка]</span></div>
+    
+      <h4 class="infra-pin__item-title">Инновационная медицинская клиника</h4>
+      <p class="infra-pin__item-text">Высокотехнологичная медицинская клиника с программами чек-ап, восстановительной и спортивной медициной.</p>
     </div>
     <div class="infra-pin__item"
          data-caption="Частный детский сад"
          data-desc="Детский сад с акцентом на передовые образовательные технологии и развитие индивидуальных способностей ребёнка.">
       <div class="ph infra-pin__photo" data-slot="infra-photo-3"><span class="ph-label">Фото — частный детский сад [заглушка]</span></div>
+    
+      <h4 class="infra-pin__item-title">Частный детский сад</h4>
+      <p class="infra-pin__item-text">Детский сад с акцентом на передовые образовательные технологии и развитие индивидуальных способностей ребёнка.</p>
     </div>
     <div class="infra-pin__item"
          data-caption="Фитнес-центр с бассейном"
          data-desc="Фитнес-центр 3000 м² с просторной спа-зоной, термальным комплексом, флоатингом, косметологией и фито-баром.">
       <div class="ph infra-pin__photo" data-slot="infra-photo-4"><span class="ph-label">Фото — фитнес-центр с бассейном [заглушка]</span></div>
+    
+      <h4 class="infra-pin__item-title">Фитнес-центр с бассейном</h4>
+      <p class="infra-pin__item-text">Фитнес-центр 3000 м² с просторной спа-зоной, термальным комплексом, флоатингом, косметологией и фито-баром.</p>
     </div>
     <div class="infra-pin__item"
          data-caption="Коммерческие помещения"
          data-desc="Для поддержания высоких стандартов качества и единого уровня инфраструктуры девелопер сохраняет в своей собственности большинство коммерческих помещений. В числе первых запланированы к открытию минимаркет, салон красоты и другие предприятия сферы услуг.">
       <div class="ph infra-pin__photo" data-slot="infra-photo-5"><span class="ph-label">Фото — коммерческие помещения [заглушка]</span></div>
+    
+      <h4 class="infra-pin__item-title">Коммерческие помещения</h4>
+      <p class="infra-pin__item-text">Для поддержания высоких стандартов качества и единого уровня инфраструктуры девелопер сохраняет в своей собственности большинство коммерческих помещений. В числе первых запланированы к открытию минимаркет, салон красоты и другие предприятия сферы услуг.</p>
     </div>
     <div class="infra-pin__item"
          data-caption="Бизнес-центр класса «Прайм»"
          data-desc="27-этажный бизнес-центр с дополнительной инфраструктурой для резидентов: отделения банков, нотариус, офисы юридических и консалтинговых компаний, рестораны, сервисные службы.">
       <div class="ph infra-pin__photo" data-slot="infra-photo-6"><span class="ph-label">Фото — бизнес-центр класса «Прайм» [заглушка]</span></div>
+    
+      <h4 class="infra-pin__item-title">Бизнес-центр класса «Прайм»</h4>
+      <p class="infra-pin__item-text">27-этажный бизнес-центр с дополнительной инфраструктурой для резидентов: отделения банков, нотариус, офисы юридических и консалтинговых компаний, рестораны, сервисные службы.</p>
     </div>
   </div>
 </section>
@@ -198,41 +240,65 @@
          data-caption="Гранд-лобби с лаунж-зоной"
          data-desc="Пространство с дизайнерской мебелью и панорамным остеклением создано для встречи гостей, отдыха с друзьями или неформального общения.">
       <div class="ph amenities-pin__photo" data-slot="amenity-photo-1"><span class="ph-label">Фото — гранд-лобби с лаунж-зоной [заглушка]</span></div>
+    
+      <h4 class="amenities-pin__item-title">Гранд-лобби с лаунж-зоной</h4>
+      <p class="amenities-pin__item-text">Пространство с дизайнерской мебелью и панорамным остеклением создано для встречи гостей, отдыха с друзьями или неформального общения.</p>
     </div>
     <div class="amenities-pin__item"
          data-caption="Переговорные"
          data-desc="Бизнес-хаб на территории дома для деловых встреч, переговоров и проведения презентаций.">
       <div class="ph amenities-pin__photo" data-slot="amenity-photo-2"><span class="ph-label">Фото — переговорные [заглушка]</span></div>
+    
+      <h4 class="amenities-pin__item-title">Переговорные</h4>
+      <p class="amenities-pin__item-text">Бизнес-хаб на территории дома для деловых встреч, переговоров и проведения презентаций.</p>
     </div>
     <div class="amenities-pin__item"
          data-caption="Коворкинг"
          data-desc="Комфортабельное пространство для продуктивной работы внутри дома.">
       <div class="ph amenities-pin__photo" data-slot="amenity-photo-3"><span class="ph-label">Фото — коворкинг [заглушка]</span></div>
+    
+      <h4 class="amenities-pin__item-title">Коворкинг</h4>
+      <p class="amenities-pin__item-text">Комфортабельное пространство для продуктивной работы внутри дома.</p>
     </div>
     <div class="amenities-pin__item"
          data-caption="Детская игровая комната"
          data-desc="Просторная комната с игрушками, мягкой мебелью и приставкой PlayStation идеально подходит для детских праздников с аниматорами и творческих мероприятий.">
       <div class="ph amenities-pin__photo" data-slot="amenity-photo-4"><span class="ph-label">Фото — детская игровая комната [заглушка]</span></div>
+    
+      <h4 class="amenities-pin__item-title">Детская игровая комната</h4>
+      <p class="amenities-pin__item-text">Просторная комната с игрушками, мягкой мебелью и приставкой PlayStation идеально подходит для детских праздников с аниматорами и творческих мероприятий.</p>
     </div>
     <div class="amenities-pin__item"
          data-caption="Бьюти-комната"
          data-desc="Приватное пространство, которое можно забронировать для визита персонального специалиста: косметолога, массажиста или нейл-мастера.">
       <div class="ph amenities-pin__photo" data-slot="amenity-photo-5"><span class="ph-label">Фото — бьюти-комната [заглушка]</span></div>
+    
+      <h4 class="amenities-pin__item-title">Бьюти-комната</h4>
+      <p class="amenities-pin__item-text">Приватное пространство, которое можно забронировать для визита персонального специалиста: косметолога, массажиста или нейл-мастера.</p>
     </div>
     <div class="amenities-pin__item"
          data-caption="Акустические кабинеты"
          data-desc="Звукоизолированные капсулы для уединённой работы и максимальной концентрации на рабочих задачах без отвлекающих факторов.">
       <div class="ph amenities-pin__photo" data-slot="amenity-photo-6"><span class="ph-label">Фото — акустические кабинеты [заглушка]</span></div>
+    
+      <h4 class="amenities-pin__item-title">Акустические кабинеты</h4>
+      <p class="amenities-pin__item-text">Звукоизолированные капсулы для уединённой работы и максимальной концентрации на рабочих задачах без отвлекающих факторов.</p>
     </div>
     <div class="amenities-pin__item"
          data-caption="Спортзал и отдельная студия для тренировок"
          data-desc="Кардиозона с беговыми дорожками для утренних и вечерних тренировок. Отдельная светлая студия для индивидуальных или групповых практик йоги, пилатеса или стретчинга.">
       <div class="ph amenities-pin__photo" data-slot="amenity-photo-7"><span class="ph-label">Фото — спортзал и студия для тренировок [заглушка]</span></div>
+    
+      <h4 class="amenities-pin__item-title">Спортзал и отдельная студия для тренировок</h4>
+      <p class="amenities-pin__item-text">Кардиозона с беговыми дорожками для утренних и вечерних тренировок. Отдельная светлая студия для индивидуальных или групповых практик йоги, пилатеса или стретчинга.</p>
     </div>
     <div class="amenities-pin__item"
          data-caption="Сервисная комната"
          data-desc="Для удобства резидентов предусмотрена отдельная сервисная комната, где можно встретиться с курьером, примерить вещи или осмотреть заказ.">
       <div class="ph amenities-pin__photo" data-slot="amenity-photo-8"><span class="ph-label">Фото — сервисная комната [заглушка]</span></div>
+    
+      <h4 class="amenities-pin__item-title">Сервисная комната</h4>
+      <p class="amenities-pin__item-text">Для удобства резидентов предусмотрена отдельная сервисная комната, где можно встретиться с курьером, примерить вещи или осмотреть заказ.</p>
     </div>
   </div>
 </section>

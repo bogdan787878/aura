@@ -27,12 +27,27 @@
   box-shadow: 0 4px 24px rgba(0,0,0,.08);
 }
 .site-header__inner {
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 24px;
   padding: 22px clamp(24px, 6vw, 96px);
 }
+/* Логотип скрыт над хиро, появляется по центру хедера после скролла */
+.site-header__logo {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 130px;
+  height: 34px;
+  min-height: 0;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity .3s ease;
+}
+.site-header.is-scrolled .site-header__logo { opacity: 1; pointer-events: auto; }
 .site-header__burger {
   display: flex;
   align-items: center;
@@ -309,9 +324,9 @@ body {
   white-space: nowrap;
 }
 @media (max-width: 900px) {
-  /* На мобильном отключаем pin-scroll (высота 300vh + sticky) — на маленьком
-     экране заголовок+текст+фото не помещаются в 100vh и обрезаются.
-     Тот же приём уже используется в .infra-pin/.amenities-pin. */
+  /* На мобильном отключаем pin-scroll (высота 300vh + sticky) и кроссфейд —
+     на маленьком экране это не помещается и выглядит как лишняя анимация.
+     Вместо этого простой горизонтальный свайп-слайдер из 3 фото. */
   .about-pin { height: auto; }
   .about-pin__sticky {
     position: relative;
@@ -321,8 +336,27 @@ body {
     padding: 100px 0 60px;
     gap: 24px;
   }
-  .about-pin__media { max-height: 320px; }
-  .about-pin__badge { left: 24px; bottom: 24px; font-size: 20px; padding: 16px 24px; }
+  .about-pin__media {
+    aspect-ratio: auto;
+    max-height: none;
+    display: flex;
+    gap: 12px;
+    padding: 0 24px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+  }
+  .about-pin__photo {
+    position: relative;
+    inset: auto;
+    opacity: 1;
+    pointer-events: auto;
+    transition: none;
+    flex: 0 0 82%;
+    aspect-ratio: 4 / 3;
+    scroll-snap-align: start;
+  }
+  .about-pin__badge { display: none; }
 }
 
 /* ===== Локация — карта на фоне ===== */
@@ -353,6 +387,15 @@ body {
   justify-content: space-between;
   pointer-events: none; /* let clicks fall through to .location-map__bg underneath */
 }
+.location-map__eyebrow {
+  display: block;
+  font-family: var(--font-display);
+  font-size: 13px;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,.75);
+  margin-bottom: 12px;
+}
 .location-map__title {
   font-size: clamp(36px, 5vw, 64px);
   font-weight: 500;
@@ -374,13 +417,21 @@ body {
   display: flex;
   flex-direction: column;
 }
-.location-map__stats .num {
+.location-map__stats .stat-line {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
   font-family: var(--font-display);
-  font-size: clamp(36px, 4vw, 52px);
+  font-size: 17px;
   font-weight: 400;
   color: var(--white);
+}
+.location-map__stats .stat-line b {
+  font-size: clamp(30px, 3.6vw, 44px);
+  font-weight: 400;
   line-height: 1;
 }
+.location-map__stats .stat-line svg { color: rgba(255,255,255,.8); flex-shrink: 0; align-self: center; }
 .location-map__stats .label {
   margin-top: 10px;
   font-family: var(--font-display);
@@ -478,9 +529,49 @@ body {
   aspect-ratio: 16 / 10;
   min-height: 0;
 }
+/* Подпись/описание внутри карточки — видны только в мобильном слайдере,
+   на десктопе эту роль играет синхронизированный сайдбар (infra-sync.js). */
+.infra-pin__item-title,
+.infra-pin__item-text { display: none; }
+
 @media (max-width: 900px) {
-  .infra-pin { grid-template-columns: 1fr; }
-  .infra-pin__side { position: relative; top: 0; margin-bottom: 40px; }
+  /* Минимализм на мобильном: убираем sticky-сайдбар с анимированной сменой
+     текста и превращаем карточки в горизонтальный свайп-слайдер — заголовок
+     секции уже есть в баннере над блоком. */
+  .infra-pin {
+    grid-template-columns: 1fr;
+    gap: 0;
+    padding: 60px 0;
+  }
+  .infra-pin__side { display: none; }
+  .infra-pin__media {
+    flex-direction: row;
+    gap: 16px;
+    padding: 0 24px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+  }
+  .infra-pin__item {
+    flex: 0 0 82%;
+    scroll-snap-align: start;
+  }
+  .infra-pin__item-title,
+  .infra-pin__item-text { display: block; }
+  .infra-pin__item-title {
+    margin: 20px 0 8px;
+    font-size: 20px;
+    font-weight: 500;
+    color: var(--burgundy);
+    text-transform: uppercase;
+  }
+  .infra-pin__item-text {
+    margin: 0;
+    font-size: 15px;
+    line-height: 1.4;
+    color: var(--ink);
+    opacity: .8;
+  }
 }
 
 /* ===== Архитектура / Благоустройство — фото + заголовок + переключатель табов ===== */
@@ -658,9 +749,44 @@ body {
   aspect-ratio: 16 / 10;
   min-height: 0;
 }
+.amenities-pin__item-title,
+.amenities-pin__item-text { display: none; }
+
 @media (max-width: 900px) {
-  .amenities-pin { grid-template-columns: 1fr; }
-  .amenities-pin__side { position: relative; top: 0; margin-bottom: 40px; }
+  .amenities-pin {
+    grid-template-columns: 1fr;
+    gap: 0;
+    padding: 60px 0;
+  }
+  .amenities-pin__side { display: none; }
+  .amenities-pin__media {
+    flex-direction: row;
+    gap: 16px;
+    padding: 0 24px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+  }
+  .amenities-pin__item {
+    flex: 0 0 82%;
+    scroll-snap-align: start;
+  }
+  .amenities-pin__item-title,
+  .amenities-pin__item-text { display: block; }
+  .amenities-pin__item-title {
+    margin: 20px 0 8px;
+    font-size: 20px;
+    font-weight: 500;
+    color: var(--burgundy);
+    text-transform: uppercase;
+  }
+  .amenities-pin__item-text {
+    margin: 0;
+    font-size: 15px;
+    line-height: 1.4;
+    color: var(--ink);
+    opacity: .8;
+  }
 }
 
 /* ===== Эстетика и функциональность — заголовок теперь в баннере выше;
