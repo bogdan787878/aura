@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>АУРА</title>
 <link rel="stylesheet" href="assets/css/fonts.css">
-<link rel="stylesheet" href="assets/css/style.css?v=94">
+<link rel="stylesheet" href="assets/css/style.css?v=95">
 </head>
 <body>
 
@@ -436,21 +436,21 @@
 <section class="promo" id="news">
   <h2 class="promo__heading">Акции</h2>
   <div class="promo__grid">
-    <article class="promo__card">
+    <article class="promo__card" data-modal="promo-1">
       <h3 class="promo__title">Аура: рассрочка 0% на весь срок строительства дома</h3>
       <div class="promo__media">
         <div class="ph promo__photo" data-slot="promo-photo-1"><span class="ph-label">Фото — акция 1 [заглушка]</span></div>
         <span class="promo__tag">Акции</span>
       </div>
     </article>
-    <article class="promo__card">
+    <article class="promo__card" data-modal="promo-2">
       <h3 class="promo__title">Три акционные квартиры в премиальной доминанте АУРА</h3>
       <div class="promo__media">
         <div class="ph promo__photo" data-slot="promo-photo-2"><span class="ph-label">Фото — акция 2 [заглушка]</span></div>
         <span class="promo__tag">Акции</span>
       </div>
     </article>
-    <article class="promo__card">
+    <article class="promo__card" data-modal="promo-3">
       <h3 class="promo__title">Новая семейная программа — особые условия для будущих родителей</h3>
       <div class="promo__media">
         <div class="ph promo__photo" data-slot="promo-photo-3"><span class="ph-label">Фото — акция 3 [заглушка]</span></div>
@@ -547,7 +547,6 @@
   <div class="site-footer__top">
     <div class="site-footer__logos">
       <div class="ph site-footer__logo" data-slot="footer-logo-aura" data-fit="contain" aria-hidden="true"><span class="ph-label">Лого АУРА</span></div>
-      <a class="ph site-footer__logo" data-slot="footer-logo-mangazeya" data-fit="contain" href="https://мангазея.рф" target="_blank" rel="noopener" aria-label="Мангазея"><span class="ph-label">Лого МАНГАЗЕЯ</span></a>
     </div>
     <div class="site-footer__social">
       <a class="ph site-footer__social-icon" data-slot="social-vk" data-fit="contain" href="https://vk.com/mangazeya_development" target="_blank" rel="noopener" aria-label="VK"><span class="ph-label">VK</span></a>
@@ -628,6 +627,73 @@
         </label>
         <button class="modal__submit" type="submit">Отправить</button>
       </form>
+    </div>
+  </div>
+</div>
+
+<!-- ===== Модалки текстов акций ===== -->
+<div class="modal modal--text" id="modal-promo-1" aria-hidden="true">
+  <div class="modal__overlay" data-modal-close></div>
+  <div class="modal__dialog modal__dialog--text">
+    <button class="modal__close" type="button" data-modal-close aria-label="Закрыть">&times;</button>
+    <div class="modal__content">
+      <h3 class="modal__title">Аура: рассрочка 0% на весь срок строительства дома</h3>
+      <div class="modal__body">
+        <p>Специальное предложение от «Мангазеи»: рассрочка 0% на семейные квартиры в премиальной доминанте АУРА — без процентов, комиссий и других переплат. Условия действуют до завершения строительства дома.</p>
+        <h4>Условия рассрочки:</h4>
+        <ul>
+          <li>Первый взнос — 30% с фиксацией стоимости квартиры</li>
+          <li>Срок — 18 месяцев</li>
+          <li>Ежемесячный платёж — 200 000 ₽</li>
+        </ul>
+        <p>Предложение распространяется на все трёхкомнатные лоты на сайте мангазея.рф.</p>
+        <p>Подробности — в Доме продаж или по телефону.</p>
+        <p>В премиальном доме АУРА представлены трёхкомнатные лоты площадью от 85,7 до 107,6 м² с приватными мастер-спальнями и кухнями-гостиными с эффектным угловым остеклением и максимальным количеством естественного освещения. Каждое планировочное решение уникально и позволяет персонифицировать пространство под любые жизненные сценарии.</p>
+        <p>Например, квартира площадью 96,1 м² с угловым остеклением и видами на набережную Москвы-реки идеально подойдёт семье с двумя детьми или парам, которые планируют пополнение и хотят иметь жизненное пространство с запасом. Мастер-спальня с большой ванной комнатой станет местом исключительной приватности для родителей.</p>
+        <p>Ещё один вариант планировки — трёхкомнатная квартира 87 м². Внутри — мастер-спальня 26,1 м² с выделенной гардеробной зоной, две изолированные комнаты с местами для хранения вещей и кухня-гостиная с видом на благоустроенный двор. Расположение кухни-гостиной рядом с входной зоной позволяет принимать гостей, не нарушая приватность членов семьи.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal modal--text" id="modal-promo-2" aria-hidden="true">
+  <div class="modal__overlay" data-modal-close></div>
+  <div class="modal__dialog modal__dialog--text">
+    <button class="modal__close" type="button" data-modal-close aria-label="Закрыть">&times;</button>
+    <div class="modal__content">
+      <h3 class="modal__title">Три акционные квартиры в премиальной доминанте АУРА</h3>
+      <div class="modal__body">
+        <p>Акция в премиальной доминанте АУРА — скидка 8% на три эксклюзивных лота апреля. Эффектным украшением всех представленных квартир является угловое остекление в зоне кухни-гостиной. При этом планировочное решение каждого пространства уникально и позволяет максимально персонифицировать квартиру под жизненные сценарии даже самой большой семьи.</p>
+        <p>Максимальная выгода в рамках акции составляет 5,3 млн рублей.</p>
+        <h4>Квартира площадью 79 м² с двумя спальнями</h4>
+        <p>Ключевое преимущество квартиры — большая и светлая кухня-гостиная с тремя окнами общей площадью 34 м². Мастер-спальня с просторной ванной комнатой обеспечивает максимальный комфорт каждого дня. Благодаря своей обособленности, детская комната подойдёт даже для взрослого ребёнка.</p>
+        <h4>Квартира с двумя спальнями площадью 88,8 м²</h4>
+        <p>Два окна в зоне кухни-гостиной позволяют максимально наполнить пространство светом и эффектно его зонировать. Мастер-спальня с гардеробной и ванной комнатой — полностью автономное пространство, обеспечивающее оптимальный комфорт. Дополнительно в каждой комнате предусмотрены удобные зоны хранения.</p>
+        <h4>Квартира с 3 спальнями площадью 106,6 м²</h4>
+        <p>Квартира с просторной кухней-гостиной, видом на благоустроенный внутренний двор и набережную Москвы-реки, которая идеально подойдёт для семей с детьми. Наличие трёх изолированных комнат позволяет настроить пространство под себя, сделав или две детские, или выделив одну из комнат под рабочий кабинет.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal modal--text" id="modal-promo-3" aria-hidden="true">
+  <div class="modal__overlay" data-modal-close></div>
+  <div class="modal__dialog modal__dialog--text">
+    <button class="modal__close" type="button" data-modal-close aria-label="Закрыть">&times;</button>
+    <div class="modal__content">
+      <h3 class="modal__title">Новая семейная программа — особые условия для будущих родителей</h3>
+      <div class="modal__body">
+        <p>Девелоперская компания «Мангазея» объявляет о запуске специальной программы для будущих родителей. Покупатели, которые ждут ребёнка и планируют воспользоваться семейной ипотекой, уже сегодня могут приобрести квартиру на особых условиях.</p>
+        <p>Согласно программе, клиент оплачивает 20% от стоимости квартиры и фиксирует её цену, а после рождения ребёнка переходит в семейную ипотеку.</p>
+        <h4>Преимущества:</h4>
+        <ul>
+          <li>Оперативный переход в программу семейной ипотеки по действующей льготной ставке</li>
+          <li>Отсутствие промежуточных платежей и скрытых условий</li>
+          <li>Помощь персонального ипотечного менеджера в одобрении семейной ипотеки</li>
+        </ul>
+        <p>Предложение действует при покупке квартиры в премиальном доме АУРА, квартале у воды «Мангазея на Речном» и проекте бизнес-класса НАЗАРÉ.</p>
+        <p>Подробности — в офисах продаж.</p>
+      </div>
     </div>
   </div>
 </div>

@@ -28,15 +28,17 @@
     });
 
     var form = modal.querySelector('.modal__form');
-    form.addEventListener('submit', function (e) {
-      e.preventDefault();
-      modal.classList.add('is-sent');
-      setTimeout(function () {
-        closeModal(modal);
-        modal.classList.remove('is-sent');
-        form.reset();
-      }, 2000);
-    });
+    if (form) {
+      form.addEventListener('submit', function (e) {
+        e.preventDefault();
+        modal.classList.add('is-sent');
+        setTimeout(function () {
+          closeModal(modal);
+          modal.classList.remove('is-sent');
+          form.reset();
+        }, 2000);
+      });
+    }
   });
 
   document.addEventListener('keydown', function (e) {

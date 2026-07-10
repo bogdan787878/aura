@@ -1174,7 +1174,7 @@ body {
   grid-template-columns: repeat(3, 1fr);
   gap: 8px;
 }
-.promo__card { display: flex; flex-direction: column; }
+.promo__card { display: flex; flex-direction: column; cursor: pointer; }
 .promo__title {
   font-size: 20px;
   font-weight: 500;
@@ -1584,6 +1584,39 @@ body {
   transition: background .25s ease;
 }
 .modal__submit:hover { background: var(--ink); }
+
+/* Текстовая модалка (тексты акций) — без фото, один столбец, скролл текста */
+.modal__dialog--text {
+  display: block;
+  width: min(680px, 100%);
+}
+.modal__dialog--text .modal__content { padding: clamp(40px, 5vw, 64px); }
+.modal__body p {
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--ink);
+  opacity: .85;
+  margin: 0 0 20px;
+}
+.modal__body h4 {
+  font-size: 18px;
+  font-weight: 500;
+  color: var(--burgundy);
+  text-transform: uppercase;
+  margin: 28px 0 12px;
+}
+.modal__body ul {
+  margin: 0 0 20px;
+  padding-left: 20px;
+}
+.modal__body li {
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--ink);
+  opacity: .85;
+  margin-bottom: 8px;
+}
+
 @media (max-width: 900px) {
   .modal { padding: 0; }
   .modal__dialog {
@@ -1594,4 +1627,6 @@ body {
   }
   .modal__photo { min-height: 220px; }
   .modal__content { padding: 32px 24px; }
+  .modal__dialog--text { width: 100%; height: 100%; }
+  .modal__dialog--text .modal__content { padding: 32px 24px; }
 }

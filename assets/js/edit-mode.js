@@ -11,7 +11,10 @@
       el.style.outline = '2px dashed rgba(227,185,138,.8)';
       el.style.outlineOffset = '-2px';
       el.title = 'Нажмите, чтобы загрузить картинку (' + el.dataset.slot + ')';
-      el.addEventListener('click', function () { openPicker(el); });
+      el.addEventListener('click', function (e) {
+        e.stopPropagation(); // не даём клику по фото триггерить модалки и другие обработчики на родителях
+        openPicker(el);
+      });
     });
 
     var bar = document.createElement('div');
