@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>АУРА</title>
 <link rel="stylesheet" href="assets/css/fonts.css">
-<link rel="stylesheet" href="assets/css/style.css?v=82">
+<link rel="stylesheet" href="assets/css/style.css?v=90">
 </head>
 <body>
 
@@ -43,10 +43,12 @@
 
 <!-- ===== Hero ===== -->
 <section class="hero" id="top">
-  <div class="ph hero-bg" data-slot="hero-bg" aria-hidden="true"><span class="ph-label">Фото: модель + кольца, одна картинка [заглушка]</span></div>
-  <div class="ph hero-logo" data-slot="hero-logo" data-fit="contain"><span class="ph-label">Логотип АУРА [заглушка]</span></div>
+  <div class="ph hero-bg hero-bg--desktop" data-slot="hero-bg" aria-hidden="true"><span class="ph-label">Фото: модель + кольца, одна картинка [заглушка]</span></div>
+  <div class="ph hero-bg hero-bg--mobile" data-slot="hero-bg-mobile" aria-hidden="true"><span class="ph-label">Фото для мобилки [заглушка]</span></div>
   <div class="hero-inner">
+    <h1 class="hero-title">Премиальная<br>доминанта</h1>
     <div class="hero-offer">Рассрочка 0%</div>
+    <button class="hero-cta" type="button">Получить предложение</button>
   </div>
 </section>
 
@@ -83,6 +85,7 @@
   <div class="location-map__content">
     <div class="location-map__head">
       <h2 class="location-map__title">Даниловский<br>район</h2>
+      <button class="cta-btn cta-btn--light" type="button">Получить предложение</button>
     </div>
     <ul class="location-map__stats">
       <li>
@@ -169,6 +172,7 @@
       <p class="infra-pin__item-text">27-этажный бизнес-центр с дополнительной инфраструктурой для резидентов: отделения банков, нотариус, офисы юридических и консалтинговых компаний, рестораны, сервисные службы.</p>
     </div>
   </div>
+  <div class="cta-block"><button class="cta-btn" type="button">Получить предложение</button></div>
 </section>
 
 <!-- ===== Архитектура + Благоустройство (tab switcher) ===== -->
@@ -301,6 +305,7 @@
       <p class="amenities-pin__item-text">Для удобства резидентов предусмотрена отдельная сервисная комната, где можно встретиться с курьером, примерить вещи или осмотреть заказ.</p>
     </div>
   </div>
+  <div class="cta-block"><button class="cta-btn" type="button">Получить предложение</button></div>
 </section>
 
 <!-- ===== Эстетика и функциональность — баннер + каскад фото ===== -->
@@ -322,6 +327,7 @@
     <div class="ph aesthetics__photo" data-slot="aesthetics-photo-3"><span class="ph-label">Фото — интерьер 3 [заглушка]</span></div>
     <div class="ph aesthetics__photo" data-slot="aesthetics-photo-4"><span class="ph-label">Фото — интерьер 4 [заглушка]</span></div>
   </div>
+  <div class="cta-block"><button class="cta-btn" type="button">Получить предложение</button></div>
 </section>
 
 <!-- ===== Паркинг ===== -->
@@ -361,6 +367,7 @@
         пространствах. Здесь найдётся место багажу для путешествий, экипировке для спорта и детским
         принадлежностям.</p>
     </div>
+    <button class="cta-btn" type="button">Получить предложение</button>
   </div>
   <div class="ph split-info__photo" data-slot="cellars-bg"><span class="ph-label">Фото — келлеры [заглушка]</span></div>
 </section>
@@ -425,6 +432,34 @@
   </div>
 </section>
 
+<!-- ===== Акции / новости ===== -->
+<section class="promo" id="news">
+  <h2 class="promo__heading">Акции</h2>
+  <div class="promo__grid">
+    <article class="promo__card">
+      <h3 class="promo__title">Аура: рассрочка 0% на весь срок строительства дома</h3>
+      <div class="promo__media">
+        <div class="ph promo__photo" data-slot="promo-photo-1"><span class="ph-label">Фото — акция 1 [заглушка]</span></div>
+        <span class="promo__tag">Акции</span>
+      </div>
+    </article>
+    <article class="promo__card">
+      <h3 class="promo__title">Три акционные квартиры в премиальной доминанте АУРА</h3>
+      <div class="promo__media">
+        <div class="ph promo__photo" data-slot="promo-photo-2"><span class="ph-label">Фото — акция 2 [заглушка]</span></div>
+        <span class="promo__tag">Акции</span>
+      </div>
+    </article>
+    <article class="promo__card">
+      <h3 class="promo__title">Новая семейная программа — особые условия для будущих родителей</h3>
+      <div class="promo__media">
+        <div class="ph promo__photo" data-slot="promo-photo-3"><span class="ph-label">Фото — акция 3 [заглушка]</span></div>
+        <span class="promo__tag">Акции</span>
+      </div>
+    </article>
+  </div>
+</section>
+
 <!-- ===== Условия покупки ===== -->
 <section class="terms-wrap" id="purchase">
   <div class="tab-block tab-block--reverse">
@@ -482,6 +517,7 @@
         <div class="terms-stat"><b>45 дней</b><span>На оценку вашей квартиры и подготовку к сделке</span></div>
         <div class="terms-stat"><b>14 дней</b><span>Выкуп вторичной недвижимости по экспресс trade-in</span></div>
       </div>
+      <button class="cta-btn cta-btn--light" type="button">Получить предложение</button>
     </div>
     <div class="tab-block__media">
       <div class="ph tab-block__photo is-active" data-slot="terms-photo"><span class="ph-label">Фото — условия покупки, одна картинка на все табы [заглушка]</span></div>
