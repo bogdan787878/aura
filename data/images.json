@@ -48,5 +48,7 @@
   "hero-bg-mobile": "assets/img/hero-bg-mobile.webp",
   "promo-photo-2": "assets/img/promo-photo-2.webp",
   "promo-photo-1": "assets/img/promo-photo-1.webp",
-  "promo-photo-3": "assets/img/promo-photo-3.webp"
+  "promo-photo-3": "assets/img/promo-photo-3.webp",
+  "modal-offer-photo": "assets/img/modal-offer-photo.webp",
+  "modal-callback-photo": "assets/img/modal-callback-photo.webp"
 }

@@ -308,8 +308,11 @@ body {
    (а не встроена в текстовую колонку) — работает и в grid-, и в block-контексте. */
 .cta-block {
   grid-column: 1 / -1;
-  text-align: center;
   margin-top: 40px;
+}
+.infra-pin .cta-block,
+.amenities-pin .cta-block {
+  padding-left: clamp(24px, 6vw, 96px);
 }
 
 /* ===== О проекте — sticky сайдбар (заголовок+описание) + скролл фото со
@@ -324,8 +327,8 @@ body {
 }
 .about-pin__text {
   position: sticky;
-  top: 0;
-  height: 100svh;
+  top: 80px;
+  height: calc(100svh - 80px);
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -552,8 +555,8 @@ body {
 }
 .infra-pin__side {
   position: sticky;
-  top: 0;
-  height: 100svh;
+  top: 80px;
+  height: calc(100svh - 80px);
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -790,8 +793,8 @@ body {
 }
 .amenities-pin__side {
   position: sticky;
-  top: 0;
-  height: 100svh;
+  top: 80px;
+  height: calc(100svh - 80px);
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -1551,14 +1554,21 @@ body {
 .modal__checkbox {
   display: flex;
   align-items: flex-start;
-  gap: 10px;
-  font-size: 13px;
-  line-height: 1.4;
+  gap: 12px;
+  font-size: 14px;
+  line-height: 1.5;
   color: var(--ink);
   opacity: .75;
   cursor: pointer;
 }
-.modal__checkbox input { margin-top: 3px; }
+.modal__checkbox input {
+  width: 22px;
+  height: 22px;
+  flex: none;
+  margin-top: 1px;
+  accent-color: var(--burgundy);
+  cursor: pointer;
+}
 .modal__checkbox a { color: inherit; text-decoration: underline; }
 .modal__submit {
   border: none;
