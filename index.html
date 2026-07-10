@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>АУРА</title>
 <link rel="stylesheet" href="assets/css/fonts.css">
-<link rel="stylesheet" href="assets/css/style.css?v=91">
+<link rel="stylesheet" href="assets/css/style.css?v=93">
 </head>
 <body>
 
@@ -48,7 +48,7 @@
   <div class="hero-inner">
     <h1 class="hero-title">Премиальная<br>доминанта</h1>
     <div class="hero-offer">Рассрочка 0%</div>
-    <button class="hero-cta" type="button">Получить предложение</button>
+    <button class="hero-cta" type="button" data-modal="offer">Получить предложение</button>
   </div>
 </section>
 
@@ -85,7 +85,7 @@
   <div class="location-map__content">
     <div class="location-map__head">
       <h2 class="location-map__title">Даниловский<br>район</h2>
-      <button class="cta-btn cta-btn--light" type="button">Получить предложение</button>
+      <button class="cta-btn cta-btn--light" type="button" data-modal="offer">Получить предложение</button>
     </div>
     <ul class="location-map__stats">
       <li>
@@ -172,7 +172,7 @@
       <p class="infra-pin__item-text">27-этажный бизнес-центр с дополнительной инфраструктурой для резидентов: отделения банков, нотариус, офисы юридических и консалтинговых компаний, рестораны, сервисные службы.</p>
     </div>
   </div>
-  <div class="cta-block"><button class="cta-btn" type="button">Получить предложение</button></div>
+  <div class="cta-block"><button class="cta-btn" type="button" data-modal="offer">Получить предложение</button></div>
 </section>
 
 <!-- ===== Архитектура + Благоустройство (tab switcher) ===== -->
@@ -305,7 +305,7 @@
       <p class="amenities-pin__item-text">Для удобства резидентов предусмотрена отдельная сервисная комната, где можно встретиться с курьером, примерить вещи или осмотреть заказ.</p>
     </div>
   </div>
-  <div class="cta-block"><button class="cta-btn" type="button">Получить предложение</button></div>
+  <div class="cta-block"><button class="cta-btn" type="button" data-modal="offer">Получить предложение</button></div>
 </section>
 
 <!-- ===== Эстетика и функциональность — баннер + каскад фото ===== -->
@@ -327,7 +327,7 @@
     <div class="ph aesthetics__photo" data-slot="aesthetics-photo-3"><span class="ph-label">Фото — интерьер 3 [заглушка]</span></div>
     <div class="ph aesthetics__photo" data-slot="aesthetics-photo-4"><span class="ph-label">Фото — интерьер 4 [заглушка]</span></div>
   </div>
-  <div class="cta-block"><button class="cta-btn" type="button">Получить предложение</button></div>
+  <div class="cta-block"><button class="cta-btn" type="button" data-modal="offer">Получить предложение</button></div>
 </section>
 
 <!-- ===== Паркинг ===== -->
@@ -367,7 +367,7 @@
         пространствах. Здесь найдётся место багажу для путешествий, экипировке для спорта и детским
         принадлежностям.</p>
     </div>
-    <button class="cta-btn" type="button">Получить предложение</button>
+    <button class="cta-btn" type="button" data-modal="offer">Получить предложение</button>
   </div>
   <div class="ph split-info__photo" data-slot="cellars-bg"><span class="ph-label">Фото — келлеры [заглушка]</span></div>
 </section>
@@ -406,28 +406,28 @@
       <h3 class="plans-simple__name">Студии</h3>
       <p class="plans-simple__meta">Площадь от 28 м²</p>
       <p class="plans-simple__price">Стоимость от 24,2 млн ₽</p>
-      <button class="plans-simple__btn" type="button">Получить предложение</button>
+      <button class="plans-simple__btn" type="button" data-modal="offer">Получить предложение</button>
     </article>
     <article class="plans-simple__card">
       <div class="plans-simple__photo"><img src="assets/img/plans/plan-1137.svg" alt="Пример планировки 1-комнатной квартиры"></div>
       <h3 class="plans-simple__name">1-комнатные</h3>
       <p class="plans-simple__meta">Площадь от 36 м²</p>
       <p class="plans-simple__price">Стоимость от 24,8 млн ₽</p>
-      <button class="plans-simple__btn" type="button">Получить предложение</button>
+      <button class="plans-simple__btn" type="button" data-modal="offer">Получить предложение</button>
     </article>
     <article class="plans-simple__card">
       <div class="plans-simple__photo"><img src="assets/img/plans/plan-889.svg" alt="Пример планировки 2-комнатной квартиры"></div>
       <h3 class="plans-simple__name">2-комнатные</h3>
       <p class="plans-simple__meta">Площадь от 57 м²</p>
       <p class="plans-simple__price">Стоимость от 36,7 млн ₽</p>
-      <button class="plans-simple__btn" type="button">Получить предложение</button>
+      <button class="plans-simple__btn" type="button" data-modal="offer">Получить предложение</button>
     </article>
     <article class="plans-simple__card">
       <div class="plans-simple__photo"><img src="assets/img/plans/plan-391.svg" alt="Пример планировки 3-комнатной квартиры"></div>
       <h3 class="plans-simple__name">3-комнатные</h3>
       <p class="plans-simple__meta">Площадь от 86 м²</p>
       <p class="plans-simple__price">Стоимость от 51,9 млн ₽</p>
-      <button class="plans-simple__btn" type="button">Получить предложение</button>
+      <button class="plans-simple__btn" type="button" data-modal="offer">Получить предложение</button>
     </article>
   </div>
 </section>
@@ -517,7 +517,7 @@
         <div class="terms-stat"><b>45 дней</b><span>На оценку вашей квартиры и подготовку к сделке</span></div>
         <div class="terms-stat"><b>14 дней</b><span>Выкуп вторичной недвижимости по экспресс trade-in</span></div>
       </div>
-      <button class="cta-btn cta-btn--light" type="button">Получить предложение</button>
+      <button class="cta-btn cta-btn--light" type="button" data-modal="offer">Получить предложение</button>
     </div>
     <div class="tab-block__media">
       <div class="ph tab-block__photo is-active" data-slot="terms-photo"><span class="ph-label">Фото — условия покупки, одна картинка на все табы [заглушка]</span></div>
@@ -534,7 +534,7 @@
     <h3 class="contact-map__subtitle">Контакты</h3>
     <p class="contact-map__line"><a href="tel:+74951879129">+7 (495) 187 91 29</a></p>
     <p class="contact-map__line"><a href="mailto:inbox@mangazeya.ru">inbox@mangazeya.ru</a></p>
-    <button class="contact-map__btn" type="button">Заказать звонок</button>
+    <button class="contact-map__btn" type="button" data-modal="callback">Заказать звонок</button>
   </div>
   <div class="contact-map__map">
     <iframe class="contact-map__frame" src="https://yandex.ru/map-widget/v1/?ll=37.619872%2C55.707172&z=16&pt=37.619872,55.707172,pm2rdm" title="ЖК АУРА на карте" loading="lazy"></iframe>
@@ -588,11 +588,56 @@
   <p class="site-footer__copyright">© 2026 «АУРА». Все права защищены</p>
 </footer>
 
+<!-- ===== Модалка «Получить предложение» ===== -->
+<div class="modal" id="modal-offer" aria-hidden="true">
+  <div class="modal__overlay" data-modal-close></div>
+  <div class="modal__dialog">
+    <button class="modal__close" type="button" data-modal-close aria-label="Закрыть">&times;</button>
+    <div class="ph modal__photo" data-slot="modal-offer-photo" aria-hidden="true"><span class="ph-label">Фото — модалка «Получить предложение» [заглушка]</span></div>
+    <div class="modal__content">
+      <h3 class="modal__title">Получить предложение</h3>
+      <p class="modal__text">Оставьте номер телефона — подберём для вас лучшее предложение по квартире в АУРЕ.</p>
+      <p class="modal__sent">Спасибо! Мы свяжемся с вами в ближайшее время.</p>
+      <form class="modal__form">
+        <input class="modal__input" type="tel" name="phone" placeholder="+7 (___) ___-__-__" required>
+        <label class="modal__checkbox">
+          <input type="checkbox" required>
+          <span>Согласен с <a href="#" target="_blank" rel="noopener">политикой обработки персональных данных</a></span>
+        </label>
+        <button class="modal__submit" type="submit">Отправить</button>
+      </form>
+    </div>
+  </div>
+</div>
+
+<!-- ===== Модалка «Заказать звонок» ===== -->
+<div class="modal" id="modal-callback" aria-hidden="true">
+  <div class="modal__overlay" data-modal-close></div>
+  <div class="modal__dialog">
+    <button class="modal__close" type="button" data-modal-close aria-label="Закрыть">&times;</button>
+    <div class="ph modal__photo" data-slot="modal-callback-photo" aria-hidden="true"><span class="ph-label">Фото — модалка «Заказать звонок» [заглушка]</span></div>
+    <div class="modal__content">
+      <h3 class="modal__title">Заказать звонок</h3>
+      <p class="modal__text">Оставьте номер телефона — наш менеджер перезвонит вам в ближайшее время.</p>
+      <p class="modal__sent">Спасибо! Мы свяжемся с вами в ближайшее время.</p>
+      <form class="modal__form">
+        <input class="modal__input" type="tel" name="phone" placeholder="+7 (___) ___-__-__" required>
+        <label class="modal__checkbox">
+          <input type="checkbox" required>
+          <span>Согласен с <a href="#" target="_blank" rel="noopener">политикой обработки персональных данных</a></span>
+        </label>
+        <button class="modal__submit" type="submit">Отправить</button>
+      </form>
+    </div>
+  </div>
+</div>
+
 <script src="assets/js/header.js"></script>
 <script src="assets/js/images.js"></script>
 <script src="assets/js/edit-mode.js"></script>
 <script src="assets/js/tab-block.js"></script>
 <script src="assets/js/infra-sync.js"></script>
 <script src="assets/js/amenities-sync.js"></script>
+<script src="assets/js/modal.js"></script>
 </body>
 </html>

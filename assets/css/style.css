@@ -292,10 +292,10 @@ body {
   background: var(--burgundy);
   color: var(--white);
   font-family: var(--font-display);
-  font-size: 16px;
+  font-size: 18px;
   text-transform: uppercase;
   letter-spacing: .03em;
-  padding: 18px 40px;
+  padding: 24px 56px;
   cursor: pointer;
   transition: background .25s ease;
   margin-top: 40px;
@@ -309,7 +309,7 @@ body {
 .cta-block {
   grid-column: 1 / -1;
   text-align: center;
-  margin-top: 56px;
+  margin-top: 40px;
 }
 
 /* ===== О проекте — sticky сайдбар (заголовок+описание) + скролл фото со
@@ -548,7 +548,7 @@ body {
   display: grid;
   grid-template-columns: minmax(280px, 36%) 1fr;
   gap: 48px;
-  padding: 140px 0;
+  padding: 140px 0 80px;
 }
 .infra-pin__side {
   position: sticky;
@@ -786,7 +786,7 @@ body {
   display: grid;
   grid-template-columns: minmax(280px, 36%) 1fr;
   gap: 48px;
-  padding: 140px 0;
+  padding: 140px 0 80px;
 }
 .amenities-pin__side {
   position: sticky;
@@ -873,7 +873,7 @@ body {
    здесь только подзаголовок/описание и каскад из 4 фото ===== */
 .aesthetics {
   background: #EEE1D9;
-  padding: 100px clamp(24px, 6vw, 96px) 140px;
+  padding: 100px clamp(24px, 6vw, 96px) 80px;
 }
 .aesthetics__subtitle {
   font-size: clamp(28px, 3.2vw, 42px);
@@ -1455,4 +1455,133 @@ body {
   .site-footer__logo { width: 128px; height: 40px; }
   .site-footer__nav-row { gap: 14px 20px; }
   .site-footer__nav-row a { font-size: 15px; }
+}
+
+/* ===== Модалки «Получить предложение» / «Заказать звонок» ===== */
+.modal {
+  position: fixed;
+  inset: 0;
+  z-index: 300;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+}
+.modal.is-open { display: flex; }
+.modal__overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(28, 18, 16, .6);
+}
+.modal__dialog {
+  position: relative;
+  z-index: 1;
+  background: var(--white);
+  width: min(880px, 100%);
+  max-height: 90vh;
+  overflow: auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+.modal__close {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  z-index: 2;
+  width: 40px;
+  height: 40px;
+  border: none;
+  border-radius: 0;
+  background: var(--white);
+  color: var(--ink);
+  font-size: 22px;
+  line-height: 1;
+  cursor: pointer;
+}
+.modal__photo {
+  width: 100%;
+  height: 100%;
+  min-height: 320px;
+}
+.modal__content {
+  padding: clamp(32px, 4vw, 56px);
+  display: flex;
+  flex-direction: column;
+}
+.modal__title {
+  font-size: clamp(24px, 2.4vw, 32px);
+  font-weight: 500;
+  color: var(--burgundy);
+  text-transform: uppercase;
+  margin: 0 0 16px;
+}
+.modal__text {
+  font-size: 16px;
+  line-height: 1.5;
+  color: var(--ink);
+  opacity: .8;
+  margin: 0 0 32px;
+}
+.modal__sent {
+  display: none;
+  font-size: 18px;
+  line-height: 1.5;
+  color: var(--burgundy);
+  margin: 0;
+}
+.modal.is-sent .modal__form,
+.modal.is-sent .modal__text { display: none; }
+.modal.is-sent .modal__sent { display: block; }
+.modal__form {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  margin-top: auto;
+}
+.modal__input {
+  border: none;
+  border-bottom: 1px solid rgba(28, 18, 16, .3);
+  background: none;
+  font-family: var(--font-display);
+  font-size: 18px;
+  padding: 10px 0;
+  color: var(--ink);
+}
+.modal__input:focus { outline: none; border-color: var(--burgundy); }
+.modal__checkbox {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 13px;
+  line-height: 1.4;
+  color: var(--ink);
+  opacity: .75;
+  cursor: pointer;
+}
+.modal__checkbox input { margin-top: 3px; }
+.modal__checkbox a { color: inherit; text-decoration: underline; }
+.modal__submit {
+  border: none;
+  border-radius: 0;
+  background: var(--burgundy);
+  color: var(--white);
+  font-family: var(--font-display);
+  font-size: 16px;
+  text-transform: uppercase;
+  letter-spacing: .03em;
+  padding: 18px 40px;
+  cursor: pointer;
+  transition: background .25s ease;
+}
+.modal__submit:hover { background: var(--ink); }
+@media (max-width: 900px) {
+  .modal { padding: 0; }
+  .modal__dialog {
+    grid-template-columns: 1fr;
+    width: 100%;
+    height: 100%;
+    max-height: 100svh;
+  }
+  .modal__photo { min-height: 220px; }
+  .modal__content { padding: 32px 24px; }
 }

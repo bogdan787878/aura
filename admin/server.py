@@ -89,6 +89,8 @@ SLOTS = [
     ('footer-logo-mangazeya', 'Футер — логотип МАНГАЗЕЯ'),
     ('social-vk', 'Футер — иконка VK'),
     ('social-telegram', 'Футер — иконка Telegram'),
+    ('modal-offer-photo', 'Модалка «Получить предложение» — фото'),
+    ('modal-callback-photo', 'Модалка «Заказать звонок» — фото'),
 ]
 
 
